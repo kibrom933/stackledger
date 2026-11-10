@@ -36,7 +36,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <article className="mx-auto max-w-6xl px-4 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {g.status !== "published" && (
-        <p className="mb-4 rounded-lg bg-ochre-soft px-4 py-2 text-sm text-ochre">Draft ({g.status}). Not visible in production until approved.</p>
+        <p className="mb-4 rounded-lg bg-accent-soft px-4 py-2 text-sm text-accent">Draft ({g.status}). Not visible in production until approved.</p>
       )}
       <nav className="text-sm text-muted"><Link href="/guides" className="hover:text-ink">Guides</Link>{cat && <> / <Link href={`/category/${cat.slug}`} className="hover:text-ink">{cat.name}</Link></>}</nav>
       <header className="mt-4 max-w-3xl">
@@ -57,7 +57,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               {products.map((p) => <ProductCard key={p.id} product={p} fromSlug={g.slug} />)}
             </section>
           )}
-          <section className="mt-12 rounded-2xl border border-line p-6 text-sm">
+          <section className="mt-12 rounded-md border border-line p-6 text-sm">
             <h2 className="font-display text-lg font-semibold">Sources</h2>
             <ol className="mt-3 list-decimal space-y-1 pl-5">
               {g.sources.map((s) => <li key={s.url}><a href={s.url} className="underline underline-offset-2" rel="noopener" target="_blank">{s.title}</a></li>)}

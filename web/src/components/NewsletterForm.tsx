@@ -18,14 +18,14 @@ export function NewsletterForm() {
     setState(res.ok ? "ok" : "error");
     setMsg(json.message ?? (res.ok ? "" : "Something went wrong. Please try again later."));
   }
-  if (state === "ok") return <p role="status" className="self-center font-medium text-forest">{msg || "Check your inbox and confirm your subscription."}</p>;
+  if (state === "ok") return <p role="status" className="self-center font-medium text-brand">{msg || "Check your inbox and confirm your subscription."}</p>;
   return (
     <form onSubmit={submit} className="space-y-3">
       <label className="block text-sm font-medium" htmlFor="nl-email">Email</label>
       <div className="flex flex-col gap-2 sm:flex-row">
         <input id="nl-email" name="email" type="email" required autoComplete="email" placeholder="you@example.com"
-          className="min-w-0 flex-1 rounded-full border border-line bg-paper px-4 py-3 outline-none focus:border-forest" />
-        <button disabled={state === "sending"} className="rounded-full bg-forest px-6 py-3 font-medium text-paper disabled:opacity-60">
+          className="min-w-0 flex-1 rounded-md border border-line bg-paper px-4 py-3 outline-none focus:border-brand" />
+        <button disabled={state === "sending"} className="rounded-md bg-brand px-6 py-3 font-medium text-paper disabled:opacity-60">
           {state === "sending" ? "Sending…" : "Subscribe"}
         </button>
       </div>

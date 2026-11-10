@@ -15,7 +15,7 @@ export default async function Admin() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
       <h1 className="font-display text-3xl font-semibold">Operations: last 30 days</h1>
-      {!d.configured && <p className="mt-4 rounded-lg bg-ochre-soft p-4 text-sm">Supabase is not configured yet (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Numbers are empty.</p>}
+      {!d.configured && <p className="mt-4 rounded-lg bg-accent-soft p-4 text-sm">Supabase is not configured yet (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Numbers are empty.</p>}
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Tile label="Visitors" value={d.visitors30d?.toLocaleString("da-DK") ?? "–"} note={d.visitors30d === null ? "Plausible not connected" : undefined} />
         <Tile label="Affiliate link clicks" value={d.clicks30d.toLocaleString("da-DK")} note={ctr !== null ? `${ctr.toFixed(1)} % of visitors` : undefined} />
@@ -41,7 +41,7 @@ export default async function Admin() {
 
 function Tile({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="rounded-2xl border border-line p-5">
+    <div className="rounded-md border border-line p-5">
       <p className="text-sm text-muted">{label}</p>
       <p className="mt-2 font-display text-3xl font-semibold tabular-nums">{value}</p>
       {note && <p className="mt-1 text-xs text-muted">{note}</p>}
@@ -51,7 +51,7 @@ function Tile({ label, value, note }: { label: string; value: string; note?: str
 
 function Table({ title, rows }: { title: string; rows: string[][] }) {
   return (
-    <div className="rounded-2xl border border-line p-5">
+    <div className="rounded-md border border-line p-5">
       <p className="font-medium">{title}</p>
       {rows.length === 0 ? <p className="mt-3 text-sm text-muted">No data yet.</p> : (
         <table className="mt-3 w-full text-sm">

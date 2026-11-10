@@ -68,7 +68,7 @@ Main risks: brutal competition (a third-party report claims 71% of affiliate sit
 - **Promise:** "AI tools that earn their subscription. Tested, priced, privacy-checked."
 - **Positioning:** the calm European second opinion on AI tools: own accounts, dated prices, data and GDPR facts, plain disclosure.
 - **Voice:** practical, friendly, no hype or fake urgency; "not stated" when a vendor does not say.
-- **Look:** unchanged (forest green, warm paper, ochre; Fraunces + Inter; "S" monogram; light and dark).
+- **Look (new 10 Nov 2026, deliberately unlike Zoonex):** ledger style. Ink #0c0e13 on off-white, cobalt #2744f0 for actions, lime #c9f24b as a highlighter; Space Grotesk headings, Inter text, JetBrains Mono labels; square-ish corners, hard offset shadows; logo = three ledger rows, the last ticked in lime; light and dark.
 - **Domain:** stackledger.com is the natural choice for a global site; availability **not checked** (DNS blocked here). Fallbacks: stackledger.io, stackledger.co, getstackledger.com. Registering needs your approval.
 
 ## 6. Technical architecture

@@ -1,29 +1,33 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* Stackledger identity: ledger paper, ink, cobalt for action, lime as the highlighter. */
 @theme {
-  --color-paper: #faf7f2;
-  --color-ink: #1d2420;
-  --color-muted: #5b655f;
-  --color-line: #e5dfd4;
-  --color-forest: #1f4d3a;
-  --color-forest-soft: #e6efe9;
-  --color-ochre: #c7852b;
-  --color-ochre-soft: #f7ecdb;
-  --font-display: var(--font-fraunces), Georgia, serif;
+  --color-paper: #fbfbf8;
+  --color-ink: #0c0e13;
+  --color-muted: #5b606c;
+  --color-line: #e2e4e8;
+  --color-brand: #2744f0;
+  --color-brand-soft: #eef0fe;
+  --color-accent: #4d6b00;
+  --color-accent-soft: #eef8cf;
+  --color-highlight: #c9f24b;
+  --font-display: var(--font-grotesk), system-ui, sans-serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-mono-jb), ui-monospace, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-paper: #121614;
-    --color-ink: #ece8e1;
-    --color-muted: #a3aca6;
-    --color-line: #2b332e;
-    --color-forest: #8cc7a8;
-    --color-forest-soft: #1b2a23;
-    --color-ochre: #e0a552;
-    --color-ochre-soft: #2b2316;
+    --color-paper: #0c0e13;
+    --color-ink: #eceef2;
+    --color-muted: #9aa0ad;
+    --color-line: #262a33;
+    --color-brand: #8b9cff;
+    --color-brand-soft: #171c33;
+    --color-accent: #c9f24b;
+    --color-accent-soft: #1d2410;
+    --color-highlight: #c9f24b;
   }
 }
 
@@ -32,19 +36,28 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  font-feature-settings: "tnum" 1;
+}
+
+.marker {
+  background: linear-gradient(transparent 55%, var(--color-highlight) 55%, var(--color-highlight) 92%, transparent 92%);
+  color: inherit;
+}
+@media (prefers-color-scheme: dark) {
+  .marker { background: none; color: var(--color-highlight); }
 }
 
 .prose-stackledger {
   --tw-prose-body: var(--color-ink);
   --tw-prose-headings: var(--color-ink);
-  --tw-prose-links: var(--color-forest);
+  --tw-prose-links: var(--color-brand);
   --tw-prose-bold: var(--color-ink);
-  --tw-prose-bullets: var(--color-ochre);
+  --tw-prose-bullets: var(--color-brand);
   --tw-prose-counters: var(--color-muted);
   --tw-prose-quotes: var(--color-ink);
-  --tw-prose-quote-borders: var(--color-ochre);
+  --tw-prose-quote-borders: var(--color-brand);
   --tw-prose-th-borders: var(--color-line);
   --tw-prose-td-borders: var(--color-line);
   --tw-prose-hr: var(--color-line);
 }
-.prose-stackledger h2, .prose-stackledger h3 { font-family: var(--font-display); scroll-margin-top: 6rem; }
+.prose-stackledger h2, .prose-stackledger h3 { font-family: var(--font-display); letter-spacing: -0.02em; scroll-margin-top: 6rem; }
