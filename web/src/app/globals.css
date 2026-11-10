@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-paper: #faf7f2;
+  --color-ink: #1d2420;
+  --color-muted: #5b655f;
+  --color-line: #e5dfd4;
+  --color-forest: #1f4d3a;
+  --color-forest-soft: #e6efe9;
+  --color-ochre: #c7852b;
+  --color-ochre-soft: #f7ecdb;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #121614;
+    --color-ink: #ece8e1;
+    --color-muted: #a3aca6;
+    --color-line: #2b332e;
+    --color-forest: #8cc7a8;
+    --color-forest-soft: #1b2a23;
+    --color-ochre: #e0a552;
+    --color-ochre-soft: #2b2316;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.prose-driftig {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-links: var(--color-forest);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-bullets: var(--color-ochre);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-ochre);
+  --tw-prose-th-borders: var(--color-line);
+  --tw-prose-td-borders: var(--color-line);
+  --tw-prose-hr: var(--color-line);
+}
+.prose-driftig h2, .prose-driftig h3 { font-family: var(--font-display); scroll-margin-top: 6rem; }
