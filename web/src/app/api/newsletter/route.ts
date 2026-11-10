@@ -9,10 +9,10 @@ const Body = z.object({ email: z.string().email().max(254), consent: z.literal(t
 /** Double opt-in signup. Stores only email, consent text and timestamps (data minimisation). */
 export async function POST(req: Request) {
   const parsed = Body.safeParse(await req.json().catch(() => null));
-  if (!parsed.success) return NextResponse.json({ message: "Udfyld en gyldig e-mail og sæt flueben." }, { status: 400 });
-  if (parsed.data.website) return NextResponse.json({ message: "Tak!" }); // honeypot hit: pretend success
+  if (!parsed.success) return NextResponse.json({ message: "Enter a valid email and tick the box." }, { status: 400 });
+  if (parsed.data.website) return NextResponse.json({ message: "Thanks!" }); // honeypot hit: pretend success
   const db = serverDb();
-  if (!db) return NextResponse.json({ message: "Nyhedsbrevet åbner snart. Prøv igen om lidt." }, { status: 503 });
+  if (!db) return NextResponse.json({ message: "The newsletter opens soon. Please try again later." }, { status: 503 });
 
   const email = parsed.data.email.trim().toLowerCase();
   const confirm = newToken();
@@ -22,11 +22,11 @@ export async function POST(req: Request) {
       confirm_token_hash: hashToken(confirm), unsubscribe_token_hash: hashToken(unsubscribe) },
     { onConflict: "email", ignoreDuplicates: false },
   );
-  if (error) { console.error(error.message); return NextResponse.json({ message: "Noget gik galt." }, { status: 500 }); }
+  if (error) { console.error(error.message); return NextResponse.json({ message: "Something went wrong." }, { status: 500 }); }
 
   const link = `${site.url}/api/newsletter/confirm?token=${confirm}`;
-  const sent = await sendEmail(email, "Bekræft din tilmelding til Driftig",
-    `<p>Hej!</p><p>Klik her for at bekræfte, at du vil have Driftigs nyhedsbrev:</p><p><a href="${link}">Bekræft tilmelding</a></p><p>Har du ikke bedt om det, kan du bare ignorere mailen. Så sker der ingenting.</p>`);
+  const sent = await sendEmail(email, "Confirm your Driftig subscription",
+    `<p>Hi!</p><p>Click to confirm that you want Driftig's monthly newsletter:</p><p><a href="${link}">Confirm subscription</a></p><p>If you did not ask for this, ignore this email and nothing will happen.</p>`);
   if (!sent && process.env.NODE_ENV !== "production") console.info("[dev] confirm link:", link);
-  return NextResponse.json({ message: "Tjek din indbakke og bekræft tilmeldingen." });
+  return NextResponse.json({ message: "Check your inbox and confirm your subscription." });
 }

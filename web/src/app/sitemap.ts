@@ -7,8 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: site.url, lastModified: new Date() },
     { url: `${site.url}/guides` },
-    ...categories.map((c) => ({ url: `${site.url}/kategori/${c.slug}` })),
+    ...categories.map((c) => ({ url: `${site.url}/category/${c.slug}` })),
     ...guides.map((g) => ({ url: `${site.url}/guides/${g.slug}`, lastModified: g.updated })),
-    ...["om-os", "annoncering", "privatliv", "cookies", "vilkaar", "nyhedsbrev"].map((p) => ({ url: `${site.url}/${p}` })),
+    ...["about", "affiliate-disclosure", "privacy", "cookies", "terms", "newsletter"].map((p) => ({ url: `${site.url}/${p}` })),
   ];
 }

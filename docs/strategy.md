@@ -1,5 +1,7 @@
 # Driftig: strategy and first execution report
 
+> **Decision, 10 Nov 2026:** the owner chose **English AI tools for a global audience** (finalist #2 below) over my recommendation of Danish small-business software. Sections 3-10 reflect that choice.
+
 *Prepared 10 November 2026. Every commission figure below is marked **verified** (read on the vendor's or network's own page that day) or **unverified** (third-party or not found). Search volumes were NOT measured: no keyword tool is connected yet. Scores are qualitative judgements, not data.*
 
 ## 0. Environment audit
@@ -46,28 +48,28 @@ Scores 1-5 (5 = best). Competition: 5 = easiest. Weighted total = commercial 30%
 
 | Model | How it earns | Strength | Weakness |
 |---|---|---|---|
-| A. Comparison authority site | SEO guides, hands-on reviews, comparisons with labelled reklamelinks | Compounding organic traffic, high purchase intent | 4-9 months before search traffic is meaningful |
-| B. Newsletter and LinkedIn first | Monthly newsletter ("deadlines + price changes") and LinkedIn posts, affiliate links in context | Owned audience, independent of Google | Slower list growth, needs consistency |
-| C. Free tools and calculators | "Am I covered by digital bookkeeping?" checker, VAT and price calculators, plan comparers | Earns links and repeat visits, easy to automate | Needs development time per tool |
+| A. Hands-on review and comparison site | Reviews, head-to-heads and "best X for Y" pages with labelled affiliate links | High purchase intent; recurring 12-month commissions | English SERPs are crowded; 6-12 months to meaningful search traffic |
+| B. Newsletter + LinkedIn + YouTube first | Monthly "price changes and what's worth paying for" email; short tool demos | Owned audience, less dependent on Google, which hit affiliate sites hard in 2026 | Needs consistent publishing |
+| C. Free tools | AI tool price calculator (per seat, annual vs monthly), "Is this tool GDPR-ready?" checker, AI Act deadline checker | Earns links, repeat visits, easy to automate | Development time per tool |
 
-**Recommendation: A + C, with B as the distribution channel.** The site is built for A now; tools (C) are the first feature to add in month 2.
+**Recommendation: A + C, with B as distribution.** Video matters more here than in the Danish plan: AI voice/video tools convert best when shown working.
 
-## 4. Final niche recommendation
+## 4. Final niche (owner's decision)
 
-**Software for freelancers and small businesses in Denmark**, starting with accounting/bookkeeping, invoicing, CRM, webshop platforms and AI tools. Expand to Sweden and Norway later (same SMB software programs are often Nordic; the brand name works in all three languages).
+**AI tools for freelancers and small teams, in English, reviewed from Europe.** Start with categories where verified programs pay recurring commissions: meetings and notes (Fireflies: up to 30% recurring for 12 months, 90 days), voice and video (ElevenLabs: 22% for 12 months; Synthesia: 25%, 60-day cookie), automation (Make: 35% for 12 months), sales/CRM (Pipedrive: 20% for 12 months, 90 days). All five read on the vendors' own pages on 10 Nov 2026.
 
-Why it wins: highest verified payouts per referral, a regulatory demand driver with a date on it, lower competition in Danish, genuine hands-on testing is cheap (free trials), and B2B buyers reward careful, trustworthy comparisons over hype.
+**How we avoid being one more AI-tools listicle:** the European angle. Every review states the real price (per seat, annual vs monthly, currency), data retention, whether customer data trains models, and where data is processed, plus what the EU AI Act and GDPR mean for using the tool at work. US-based competitors rarely cover that, and EU/UK buyers search for it.
 
-Main risks: some key Danish vendors (Billy, e-conomic) have no affiliate program we could find; we will cover them fairly anyway, which is good for trust but means some recommended options earn nothing. Partner-ads bans PPC, Facebook ads and coupon sites for Dinero, so growth must be organic.
+Main risks: brutal competition (a third-party report claims 71% of affiliate sites lost rankings in the March 2026 core update; unverified); fast-changing prices and programs; several programs forbid bidding on brand keywords (ElevenLabs) or Google Ads entirely (Descript), so growth must be organic.
 
 ## 5. Brand concept
 
-- **Name: Driftig.** Danish, Swedish and Norwegian for "enterprising, hard-working". Says who the reader is, not what we sell, and travels across the Nordics.
-- **Promise:** "Vælg software, der passer til din virksomhed. Ikke til vores provision."
-- **Positioning:** the calm, independent second opinion for people who run a business alone or with a few colleagues. We test with our own accounts, show dated prices, and say plainly when we earn commission.
-- **Voice:** practical, friendly, no buzzwords, no urgency tricks. Rules explained with sources; "ask your accountant" when it matters.
-- **Visual identity:** warm paper background, deep forest green, ochre accent; Fraunces serif headings with Inter body text; a simple "D" monogram. Light and dark mode.
-- **Domain strategy:** driftig.dk first (availability **not checked**: DNS is blocked here), with driftig.se / driftig.no reserved later only if Nordic expansion is justified. Fallbacks if taken: driftigt.dk, driftig-guide.dk. Registering costs money, so it needs your approval.
+- **Name: Driftig** (kept, as on the decision card). Scandinavian for "enterprising"; to English ears it is short, unusual and ownable, and hints at the European origin. If you would prefer an English-language name, now is the cheapest time to change it.
+- **Promise:** "AI tools that earn their subscription. Tested, priced, privacy-checked."
+- **Positioning:** the calm European second opinion on AI tools: own accounts, dated prices, data and GDPR facts, plain disclosure.
+- **Voice:** practical, friendly, no hype or fake urgency; "not stated" when a vendor does not say.
+- **Look:** unchanged (forest green, warm paper, ochre; Fraunces + Inter; "D" monogram; light and dark).
+- **Domain:** driftig.com is the natural choice for a global site; availability **not checked** (DNS blocked here). Fallbacks: driftig.ai, getdriftig.com, driftig.io. Registering needs your approval.
 
 ## 6. Technical architecture
 
@@ -82,6 +84,7 @@ Main risks: some key Danish vendors (Billy, e-conomic) have no affiliate program
 | Email | Resend, double opt-in, one-click unsubscribe that deletes the address | Consent evidence stored; data minimisation |
 | Engine | Python 3.11+: opportunity scoring, Claude drafting, QA gate, social drafts, commission import, weekly report, finance model | Runs locally or on a schedule |
 | AI | Claude API (`claude-opus-5-5`), structured outputs, prompt caching | Drafts only; humans approve |
+| Language | English (en-US spelling), prices shown in the vendor's currency; books kept in DKK | Global audience, Danish company |
 | Hosting | Vercel (Pro plan for commercial use, to be confirmed) or Netlify | Git-based deploys and preview URLs |
 | Scheduling | GitHub Actions cron | Free for this volume, logs every run |
 | Monitoring | Sentry (connector available) + `job_runs` table | Errors and failed jobs show up in the weekly report |
@@ -104,56 +107,60 @@ Main risks: some key Danish vendors (Billy, e-conomic) have no affiliate program
 
 ## 8. Financial model
 
-All inputs are **assumptions** until the dashboard has real data. Revenue = sessions x click-through to vendor x conversion per click x average payout x approval rate. Cash arrives two months after it is earned. Your own time is not costed.
+All inputs are **assumptions** until the dashboard has real data. Revenue = sessions x click-through to vendor x paid conversion per click x average payout x approval rate; cash arrives two months later; your time is not costed. Payout assumptions are based on the verified 20-35% of 12 months of a typical $10-30/month plan.
 
-| Scenario | Sessions at month 12 | Click-through | Conversion per click | Avg payout | Approval |
+| Scenario | Sessions at month 12 | Click-through | Paid conversion per click | Avg payout | Approval |
 |---|---|---|---|---|---|
-| Conservative | 2,000 | 6% | 4% | 150 kr | 80% |
-| Expected | 8,000 | 10% | 5% | 200 kr | 85% |
-| Ambitious | 25,000 | 12% | 6% | 250 kr | 90% |
+| Conservative | 3,000 | 8% | 1.5% | 200 DKK | 80% |
+| Expected | 10,000 | 12% | 2.5% | 450 DKK | 85% |
+| Ambitious | 40,000 | 15% | 3% | 600 DKK | 90% |
 
-| Scenario | RPM (kr per 1,000 sessions) | Earned month 12 | Earned month 24 | Monthly costs | Operating break-even | Cash payback |
+| Scenario | RPM (DKK per 1,000 sessions) | Earned month 12 | Earned month 24 | Monthly costs | Covers running costs | Setup paid back |
 |---|---|---|---|---|---|---|
-| Conservative | 288 | 576 kr | 1,440 kr | 390 kr | month 12 | month 22 |
-| Expected | 850 | 6,800 kr | 17,000 kr | 863 kr | month 7 | month 12 |
-| Ambitious | 1,620 | 40,500 kr | 97,200 kr | 1,508 kr | month 5 | month 8 |
+| Conservative | 192 | 576 DKK | 1,536 DKK | 725 DKK | month 16 | not within 24 months |
+| Expected | 1,148 | 11,475 DKK | 34,425 DKK | 1,432 DKK | month 7 | month 11 |
+| Ambitious | 2,430 | 97,200 DKK | 291,600 DKK | 2,546 DKK | month 4 | month 7 |
 
 Monthly sessions needed for a revenue target:
 
 | Target per month | Conservative | Expected | Ambitious |
 |---|---|---|---|
-| 5,000 kr | 17,361 | 5,882 | 3,086 |
-| 10,000 kr | 34,722 | 11,765 | 6,173 |
-| 25,000 kr | 86,806 | 29,412 | 15,432 |
-| 50,000 kr | 173,611 | 58,824 | 30,864 |
+| 5,000 DKK | 26,042 | 4,357 | 2,058 |
+| 10,000 DKK | 52,083 | 8,715 | 4,115 |
+| 25,000 DKK | 130,208 | 21,786 | 10,288 |
+| 50,000 DKK | 260,417 | 43,573 | 20,576 |
 
-Costs used: hosting ~150 kr/month, analytics ~70 kr, Claude API 170-690 kr depending on volume, paid plans for hands-on tests 0-600 kr, domain ~10 kr/month; one-off setup 500-10,000 kr (domain, optional legal review of the policy pages). Prices are approximate and unverified. The model is in `engine/driftig_engine/finance.py`; run `driftig finance`. **No paid advertising** until real conversion data exists (Dinero's program forbids PPC anyway).
+Costs used: hosting ~140 DKK, analytics ~70 DKK, Claude API 210-830 DKK, paid AI-tool plans for honest testing 300-1,500 DKK, domain ~10 DKK per month; setup 1,000-10,000 DKK. The spread between scenarios is the honest message: the business only works if pages convert readers into paying customers, which we will know within 3-4 months of launch. No paid ads until then.
 
 ## 9. 30-day launch plan
 
 | Days | Work | Owner |
 |---|---|---|
-| 1-3 | Approve niche, brand and domain; register domain; decide business form/CVR for payouts | You |
-| 1-3 | Create GitHub repo and connect it; set up Supabase (EU), Vercel, Plausible, Resend | You create accounts, Claude configures |
-| 4-7 | Fill company details, review legal pages, deploy to a preview URL | Claude, you review |
-| 4-10 | Research Billy/e-conomic/other Danish vendors' programs; prepare Partner-ads and PartnerStack applications | Claude prepares, you submit |
-| 5-14 | Create trial accounts in 5-6 accounting programs; record tests with screenshots | Claude drafts the test plan, you (or Claude via your computer) run the trials |
-| 8-21 | Publish 8-12 pages: digital bookkeeping guide, "best accounting software for sole proprietors", 3-4 head-to-head comparisons, invoicing guide, VAT basics, CRM for small teams | Claude drafts, QA gate, you approve |
-| 15-21 | Build the first free tool: "Skal jeg bogføre digitalt?" checker | Claude |
-| 15-30 | Launch newsletter and LinkedIn page; first monthly newsletter | Claude drafts, you approve |
-| 22-30 | Submit sitemap to Search Console; start weekly reports; first optimisation pass | Claude |
-
-Targets for day 30 are inputs, not revenue: site live, 10 approved pages, 2+ approved affiliate programs, tracking verified end-to-end, first weekly report. Expect little or no revenue in month 1.
+| 1-3 | Approve domain; decide business form/CVR (needed for payouts and legal pages) | You |
+| 1-3 | Create GitHub repo, Supabase (EU), Vercel, Plausible, Resend accounts | You create, Claude configures |
+| 4-7 | Company details, legal pages review, preview deploy | Claude, you review |
+| 4-10 | Prepare applications: Fireflies, ElevenLabs, Synthesia, Make, Pipedrive (+ check Descript, Notion, Canva) | Claude prepares, you submit |
+| 5-14 | Paid/free accounts in 3 meeting notetakers and 3 AI voice tools; recorded tests, screenshots | Claude plans, you run them (or Claude via your computer) |
+| 8-21 | Publish 8-12 pages: AI Act guide, best AI notetakers for EU teams, Fireflies review, 2 head-to-heads, best AI voice tools, ElevenLabs review, Make vs Zapier for small teams | Claude drafts, QA gate, you approve |
+| 15-21 | First free tool: AI tool cost calculator (per seat, monthly vs annual) | Claude |
+| 15-30 | Newsletter, LinkedIn page, first 4 short demo videos | Claude drafts, you approve and record |
+| 22-30 | Search Console, sitemap, weekly reports, first optimisation pass | Claude |
 
 ## 10. Compliance built in
 
-- Danish marketing law: hidden advertising is prohibited; affiliate links count as advertising. Per Make Influence (third-party summary of Forbrugerombudsmanden guidance), disclose before the reader engages and label links "reklamelink". The site shows a disclosure box above the content and a "Reklamelink" label next to every commissioned button. Verify against Forbrugerombudsmanden's own guidance before launch.
-- GDPR: no cookies, cookieless analytics, anonymous click logs, double opt-in with stored consent, unsubscribe deletes the address, automatic purge of stale data, EU database region.
-- Affiliate terms: tracking links can only be set after approval; partner restrictions stored per partner (e.g. Dinero: no PPC, no Facebook ads, no coupon sites).
-- Content integrity: QA gate rejects invented experience, unsupported claims and missing sources; images must be our own screenshots or licensed.
-- Secrets: only in environment variables; never `NEXT_PUBLIC_`; service key server-side only.
+- Disclosure before content and an "Affiliate link (ad)" label on every commissioned button: meets the spirit of the US FTC endorsement guides and Danish marketing law (the company is Danish, so Danish law applies; verify wording against official guidance).
+- GDPR: no cookies, cookieless analytics, anonymous click logs, double opt-in, deletion on unsubscribe, automatic purge, EU database region.
+- Partner terms stored per partner (e.g. no brand bidding for ElevenLabs, no Google Ads for Descript); tracking links only after approval.
+- QA gate blocks invented experience ("we tested" without hands_on), claims like "fully GDPR-compliant" or "never hallucinates", missing sources and raw affiliate links.
 
 ## Sources
+
+- ElevenLabs affiliate terms: https://elevenlabs.io/affiliates-terms
+- Synthesia affiliates: https://synthesia.io/partners/affiliates
+- Fireflies affiliate program: https://fireflies.ai/affiliate
+- Make affiliate program: https://help.make.com/affiliate-program.md
+- Descript affiliates: https://help.descript.com/connect-with-us/affiliates.md
+- EU AI Act timeline after the Omnibus (FPF): https://fpf.org/blog/the-ai-act-implementation-timeline-what-changes-under-the-ai-omnibus
 
 - Adtraction payments: https://help.adtraction.com/en/articles/3274005-adtraction-s-payment-process-for-partners
 - Awin thresholds: https://success.awin.com/articles/en_US/Knowledge/What-are-the-payment-thresholds and joining deposit: https://www.awin.com/gb/compliance-and-regulations/application-process-and-joining-fee

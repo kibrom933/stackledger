@@ -48,18 +48,20 @@ def default_costs(ai_usd: float, tools_dkk: float) -> dict[str, float]:
         "analytics (Plausible, ~EUR 9)": 70,
         "email (Resend free tier)": 0,
         "Claude API": ai_usd * DKK_PER_USD,
-        "paid plans for hands-on tests": tools_dkk,
-        "domain (~100 kr/yr)": 10,
+        "paid plans for hands-on tests (AI tools)": tools_dkk,
+        "domain (.com, ~100 kr/yr)": 10,
     }
 
 
 SCENARIOS = [
-    Scenario("Conservative", 2_000, 5_000, 0.06, 0.04, 150, 0.80, setup_cost_dkk=500,
-             monthly_costs_dkk=default_costs(25, 0)),
-    Scenario("Expected", 8_000, 20_000, 0.10, 0.05, 200, 0.85, setup_cost_dkk=5_000,
-             monthly_costs_dkk=default_costs(50, 300)),
-    Scenario("Ambitious", 25_000, 60_000, 0.12, 0.06, 250, 0.90, setup_cost_dkk=10_000,
-             monthly_costs_dkk=default_costs(100, 600)),
+    # Global English AI-tool reviews: payouts are % of 12 months of a ~$10-30/month plan, so higher per sale than
+    # Danish flat fees, but a click needs to become a PAYING customer, and competition caps traffic.
+    Scenario("Conservative", 3_000, 8_000, 0.08, 0.015, 200, 0.80, setup_cost_dkk=1_000,
+             monthly_costs_dkk=default_costs(30, 300)),
+    Scenario("Expected", 10_000, 30_000, 0.12, 0.025, 450, 0.85, setup_cost_dkk=5_000,
+             monthly_costs_dkk=default_costs(60, 800)),
+    Scenario("Ambitious", 40_000, 120_000, 0.15, 0.03, 600, 0.90, setup_cost_dkk=10_000,
+             monthly_costs_dkk=default_costs(120, 1_500)),
 ]
 
 
@@ -87,15 +89,15 @@ def payback_month(rows: list[dict]) -> int | None:
 
 
 def markdown() -> str:
-    out = ["| Scenario | Sessions m12 | RPM (kr/1000 sessions) | Earned m12 | Earned m24 | Monthly costs | Operating break-even | Cash payback |",
+    out = ["| Scenario | Sessions m12 | RPM (DKK/1000 sessions) | Earned m12 | Earned m24 | Monthly costs | Operating break-even | Cash payback |",
            "|---|---|---|---|---|---|---|---|"]
     for s in SCENARIOS:
         rows = run(s)
-        out.append(f"| {s.name} | {s.sessions_m12:,} | {s.rpm:,.0f} | {rows[11]['earned_dkk']:,} kr | {rows[23]['earned_dkk']:,} kr | "
-                   f"{rows[0]['costs_dkk']:,} kr | {('month ' + str(break_even_month(rows))) if break_even_month(rows) else 'not within 24 months'} | "
+        out.append(f"| {s.name} | {s.sessions_m12:,} | {s.rpm:,.0f} | {rows[11]['earned_dkk']:,} DKK | {rows[23]['earned_dkk']:,} DKK | "
+                   f"{rows[0]['costs_dkk']:,} DKK | {('month ' + str(break_even_month(rows))) if break_even_month(rows) else 'not within 24 months'} | "
                    f"{('month ' + str(payback_month(rows))) if payback_month(rows) else 'not within 24 months'} |")
     out += ["", "Monthly sessions needed for a revenue target (at each scenario's RPM):", "",
             "| Target per month | " + " | ".join(s.name for s in SCENARIOS) + " |", "|---|" + "---|" * len(SCENARIOS)]
     for t in (5_000, 10_000, 25_000, 50_000):
-        out.append(f"| {t:,} kr | " + " | ".join(f"{s.sessions_needed(t):,}" for s in SCENARIOS) + " |")
+        out.append(f"| {t:,} DKK | " + " | ".join(f"{s.sessions_needed(t):,}" for s in SCENARIOS) + " |")
     return "\n".join(out).replace(",", ".")

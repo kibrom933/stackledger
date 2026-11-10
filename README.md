@@ -1,6 +1,6 @@
 # Driftig
 
-Independent Danish guides to software for freelancers and small businesses, run as an
+Independent, Europe-based reviews of AI tools for freelancers and small teams, run as an
 affiliate business with Claude as the operating engine and a human approving what matters.
 
 Read [docs/strategy.md](docs/strategy.md) for the niche research, brand, finances and launch plan,

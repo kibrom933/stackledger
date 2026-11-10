@@ -1,17 +1,18 @@
 export const site = {
   name: "Driftig",
-  tagline: "Uafhængige guides til software for selvstændige og små virksomheder",
+  tagline: "AI tools, tested from Europe: what they cost, what they do with your data, and whether they're worth it",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  locale: "da_DK",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "kontakt@example.com",
+  locale: "en_US",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
 };
 
 export const categories = [
-  { slug: "regnskab", name: "Regnskab og bogføring", blurb: "Regnskabsprogrammer, digital bogføring og de nye krav i bogføringsloven." },
-  { slug: "fakturering", name: "Fakturering og betaling", blurb: "Send fakturaer, tag imod betalinger og få styr på debitorer." },
-  { slug: "salg", name: "Salg og kunder", blurb: "CRM, bookingsystemer og nyhedsbreve til små teams." },
-  { slug: "webshop", name: "Webshop og hjemmeside", blurb: "Platforme til webshop og hjemmeside, sammenlignet på pris og funktioner." },
-  { slug: "ai", name: "AI og produktivitet", blurb: "AI-værktøjer, der sparer tid i hverdagen, og hvad de koster." },
+  { slug: "writing", name: "Writing and research", blurb: "AI assistants and writing tools, compared on output, price and data use." },
+  { slug: "meetings", name: "Meetings and notes", blurb: "AI notetakers and transcription, with a hard look at consent and storage." },
+  { slug: "voice-video", name: "Voice and video", blurb: "AI voice, dubbing, avatars and video editing for small teams." },
+  { slug: "automation", name: "Automation and agents", blurb: "Connect your apps and let workflows do the repetitive work." },
+  { slug: "sales", name: "Sales and CRM", blurb: "CRMs and sales tools with AI features that actually save time." },
+  { slug: "rules", name: "Rules and privacy", blurb: "The EU AI Act, GDPR and what they mean when you use AI tools at work." },
 ] as const;
 
 export type CategorySlug = (typeof categories)[number]["slug"];

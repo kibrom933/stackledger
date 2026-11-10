@@ -7,7 +7,7 @@ async function handle(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
   const db = serverDb();
   if (token && db) await db.from("subscribers").delete().eq("unsubscribe_token_hash", hashToken(token));
-  return NextResponse.redirect(new URL("/nyhedsbrev?status=afmeldt", req.url), 303);
+  return NextResponse.redirect(new URL("/newsletter?status=unsubscribed", req.url), 303);
 }
 export const GET = handle;
 export const POST = handle;

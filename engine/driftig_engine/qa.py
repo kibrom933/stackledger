@@ -20,16 +20,16 @@ from .config import DATA_DIR
 EXPERIENCE = [
     r"\bvi har testet\b", r"\bvi testede\b", r"\bi vores test\b", r"\bjeg har (?:selv )?(?:prøvet|testet|brugt)\b",
     r"\bvores kunder\b", r"\bvi bruger selv\b", r"\bjeg bruger selv\b",
-    r"\bwe tested\b", r"\bin our testing\b", r"\bmy dog loved\b", r"\bI personally\b",
+    r"\bwe tested\b", r"\bwe've tested\b", r"\bin our (?:testing|tests)\b", r"\bwe (?:use|used) it (?:daily|every day)\b", r"\bI personally\b", r"\bour clients\b", r"\bour customers\b",
 ]
 # Claims needing very strong evidence, or unresolved gaps the drafter flagged.
 RISKY_CLAIMS = [
     r"\bgaranteret\b", r"\b100 ?% (?:sikker|lovlig|gratis)\b", r"\bgodkendt af skat\b", r"\bskat anbefaler\b",
     r"\brevisorer anbefaler\b", r"\bmarkedets bedste\b", r"\bden bedste på markedet\b", r"\bspar \d+ ?% garanteret\b",
-    r"\bguaranteed\b", r"\bbest on the market\b", r"\[KILDE MANGLER\]",
+    r"\bguaranteed\b", r"\bbest on the market\b", r"\bfully gdpr[- ]compliant\b", r"\b100 ?% (?:accurate|secure|private)\b", r"\bnever hallucinates?\b", r"\bsaves? you \d+ hours\b", r"\bclinically proven\b", r"\[KILDE MANGLER\]", r"\[SOURCE NEEDED\]",
 ]
 # Pressure tactics we do not use.
-MANIPULATIVE = [r"\bkøb nu før\b", r"\bkun i dag\b", r"\bsidste chance\b", r"\bskynd dig\b"]
+MANIPULATIVE = [r"\bbuy now before\b", r"\btoday only\b", r"\blast chance\b", r"\bhurry\b", r"\bdon't miss out\b"]
 
 REQUIRED_KEYS = {"title", "description", "type", "category", "status", "updated", "author", "sources"}
 PRICE_MAX_AGE_DAYS = 14
@@ -109,10 +109,10 @@ def check_file(path: Path, today: date | None = None) -> QaResult:
         if p.get("imageUrl") and not p.get("imageLicense"):
             res.errors.append(f"product {pid} has an image without a licence")
 
-    if meta.get("category") in {"regnskab"} and "revisor" not in body.lower():
-        res.warnings.append("rules/accounting article never suggests asking an accountant (revisor)")
-    if re.search(r"\b\d[\d.]*\s?kr\b", body) and not re.search(r"(ekskl|inkl)\.? moms", body, re.I) and meta.get("type") in {"comparison", "review"}:
-        res.warnings.append("prices mentioned without stating ekskl./inkl. moms")
+    if meta.get("category") == "rules" and "legal advice" not in body.lower() and "lawyer" not in body.lower():
+        res.warnings.append("rules article never suggests legal advice")
+    if re.search(r"[$€£]\s?\d", body) and not re.search(r"(per|/)\s?(month|mo|user|seat|year)", body, re.I):
+        res.warnings.append("prices mentioned without a billing unit (per month/user/year)")
     if re.search(r"https?://(?!www\.driftig\.dk)[^\s)]*(?:awin1|adtraction|partner-ads|partnerstack|impact\.com|amzn\.to|tag=|ref=|via=)", body):
         res.errors.append("raw affiliate link in body; use product cards (/go/...) so links are labelled and logged")
     return res

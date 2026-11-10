@@ -1,20 +1,80 @@
 {
-  "_note": "Single source of truth for affiliate partners. NEVER fill trackingTemplate until the program has approved the account. 'verified: true' only when the figure was read on the vendor's or network's own page on checkedAt. Third-party figures stay 'verified: false'.",
+  "_note": "Single source of truth for affiliate partners. NEVER fill trackingTemplate until the program has approved the account. 'verified: true' only when the figure was read on the vendor's own page on checkedAt. Third-party figures stay 'verified: false'.",
   "partners": [
     {
-      "id": "dinero",
-      "name": "Dinero",
-      "website": "https://dinero.dk",
-      "network": "Partner-ads",
+      "id": "elevenlabs",
+      "name": "ElevenLabs",
+      "website": "https://elevenlabs.io",
+      "network": "PartnerStack",
       "networkProgramId": null,
       "applicationStatus": "not_applied",
-      "commission": { "text": "50 kr. per referred user who signs up within 30 days, paid or free plan; leads must be confirmed by the user", "verified": true, "source": "https://dinero.dk/affiliate/", "checkedAt": "2026-11-10" },
-      "cookieDays": { "value": null, "verified": false, "source": "https://dinero.dk/affiliate/" },
+      "commission": { "text": "22% on Starter/Creator/Pro/Scale, 11% on Business, for the first 12 months of the referred subscription; rates may be modified", "verified": true, "source": "https://elevenlabs.io/affiliates-terms", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": null, "verified": false, "source": "https://elevenlabs.io/affiliates-terms" },
       "approvedChannels": [],
-      "restrictions": ["No PPC (Google Ads, Bing Ads)", "No Facebook ads (organic OK)", "No coupon/discount-code sites", "No posing as Dinero"],
+      "restrictions": ["No paid-media bidding on ElevenLabs marks/keywords", "No false coupon or cash-back promises", "No cookie stuffing", "Natural persons only, 18+, active ElevenLabs account", "No self-referrals", "Enterprise purchases excluded"],
       "trackingTemplate": null,
       "paymentStatus": "none",
-      "notes": "Danish accounting software with its own affiliate page. Payout schedule/threshold not stated on the page; check in Partner-ads."
+      "notes": "Paid at the end of the third month after the commission is earned."
+    },
+    {
+      "id": "synthesia",
+      "name": "Synthesia",
+      "website": "https://www.synthesia.io",
+      "network": "Rewardful (own program)",
+      "networkProgramId": null,
+      "applicationStatus": "not_applied",
+      "commission": { "text": "25% of net payments on Starter and Creator plans; duration (one-time vs recurring) not stated on the page", "verified": true, "source": "https://synthesia.io/partners/affiliates", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": 60, "verified": true, "source": "https://synthesia.io/partners/affiliates" },
+      "approvedChannels": [],
+      "restrictions": ["No self-referrals", "Read full terms before applying: https://www.synthesia.io/terms/affiliate-terms"],
+      "trackingTemplate": null,
+      "paymentStatus": "none",
+      "notes": ""
+    },
+    {
+      "id": "fireflies",
+      "name": "Fireflies.ai",
+      "website": "https://fireflies.ai",
+      "network": "FirstPromoter (own program)",
+      "networkProgramId": null,
+      "applicationStatus": "not_applied",
+      "commission": { "text": "Up to 30% recurring for 12 months", "verified": true, "source": "https://fireflies.ai/affiliate", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": 90, "verified": true, "source": "https://fireflies.ai/affiliate" },
+      "approvedChannels": [],
+      "restrictions": [],
+      "trackingTemplate": null,
+      "paymentStatus": "none",
+      "notes": "Paid via PayPal. Minimum payout not captured; check before applying. Also listed on Awin (merchant 118085, unverified)."
+    },
+    {
+      "id": "make",
+      "name": "Make",
+      "website": "https://www.make.com",
+      "network": "Own program",
+      "networkProgramId": null,
+      "applicationStatus": "not_applied",
+      "commission": { "text": "35% of subscription payments for 12 months from the referred user's registration (not extra operations)", "verified": true, "source": "https://help.make.com/affiliate-program.md", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": null, "verified": false, "source": "https://help.make.com/affiliate-program.md" },
+      "approvedChannels": [],
+      "restrictions": ["Payout needs at least $100 commission and 3 unique paying users", "Payments only via Wise"],
+      "trackingTemplate": null,
+      "paymentStatus": "none",
+      "notes": "Attribution is by registration through the link; no retroactive adds."
+    },
+    {
+      "id": "descript",
+      "name": "Descript",
+      "website": "https://www.descript.com",
+      "network": "PartnerStack",
+      "networkProgramId": null,
+      "applicationStatus": "not_applied",
+      "commission": { "text": "Not stated on the help page; check https://www.descript.com/affiliate", "verified": false, "source": "https://help.descript.com/connect-with-us/affiliates.md", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": null, "verified": false, "source": null },
+      "approvedChannels": [],
+      "restrictions": ["No Google Ads as an affiliate", "No discount codes for affiliates"],
+      "trackingTemplate": null,
+      "paymentStatus": "none",
+      "notes": "Paid via PayPal; approval decision within 14 days."
     },
     {
       "id": "pipedrive",
@@ -29,22 +89,7 @@
       "restrictions": ["Offline promotion needs prior written approval"],
       "trackingTemplate": null,
       "paymentStatus": "none",
-      "notes": "Payouts via PartnerStack; commissions locked on the 7th two months after the transaction, paid on the 13th."
-    },
-    {
-      "id": "monday",
-      "name": "monday.com",
-      "website": "https://monday.com",
-      "network": "PartnerStack (unverified)",
-      "networkProgramId": null,
-      "applicationStatus": "not_applied",
-      "commission": { "text": "Sources conflict: 'up to 20% on each closed deal' plus CPL (PartnerStack blog) vs '20% recurring' (Supademo list)", "verified": false, "source": "https://partnerstack.com/articles/top-paying-collaboration-software-affiliate-programs", "checkedAt": "2026-11-10" },
-      "cookieDays": { "value": 90, "verified": false, "source": "https://partnerstack.com/articles/top-paying-collaboration-software-affiliate-programs" },
-      "approvedChannels": [],
-      "restrictions": [],
-      "trackingTemplate": null,
-      "paymentStatus": "none",
-      "notes": "Check monday.com's own partner page before applying."
+      "notes": "CRM with AI features; fits 'AI for sales'."
     },
     {
       "id": "canva",
@@ -53,13 +98,13 @@
       "network": "Impact (unverified)",
       "networkProgramId": null,
       "applicationStatus": "not_applied",
-      "commission": { "text": "Reported ~$36 per annual Pro referral or 80% of first two months (third-party, Make Influence; Canva's own page not read)", "verified": false, "source": "https://www.makeinfluence.com/en/academy/notion-canva-and-the-template-economy-how-saas-tools-turn-creators-into-affiliates", "checkedAt": "2026-11-10" },
-      "cookieDays": { "value": 30, "verified": false, "source": "https://www.makeinfluence.com/en/academy/notion-canva-and-the-template-economy-how-saas-tools-turn-creators-into-affiliates" },
+      "commission": { "text": "Reported ~$36 per annual Pro referral or 80% of first two months (third-party; Canva's own page not read)", "verified": false, "source": "https://www.makeinfluence.com/en/academy/notion-canva-and-the-template-economy-how-saas-tools-turn-creators-into-affiliates", "checkedAt": "2026-11-10" },
+      "cookieDays": { "value": 30, "verified": false, "source": null },
       "approvedChannels": [],
       "restrictions": [],
       "trackingTemplate": null,
       "paymentStatus": "none",
-      "notes": "Reportedly requires acceptance into the Canvassador programme first."
+      "notes": "Reportedly requires Canvassador acceptance first."
     },
     {
       "id": "notion",
@@ -68,43 +113,13 @@
       "network": "PartnerStack (unverified)",
       "networkProgramId": null,
       "applicationStatus": "not_applied",
-      "commission": { "text": "Conflicting third-party figures (50% for 12 months vs up to $50 + 20% of year one); one source says not accepting new affiliates", "verified": false, "source": "https://supademo.com/blog/saas-affiliate-programs", "checkedAt": "2026-11-10" },
-      "cookieDays": { "value": 180, "verified": false, "source": "https://supademo.com/blog/saas-affiliate-programs" },
-      "approvedChannels": [],
-      "restrictions": [],
-      "trackingTemplate": null,
-      "paymentStatus": "none",
-      "notes": "Low priority until the programme status is confirmed."
-    },
-    {
-      "id": "billy",
-      "name": "Billy",
-      "website": "https://www.billy.dk",
-      "network": "unknown",
-      "networkProgramId": null,
-      "applicationStatus": "not_applied",
-      "commission": { "text": "unknown: research needed", "verified": false, "source": null, "checkedAt": "2026-11-10" },
+      "commission": { "text": "Conflicting third-party figures; one source says not accepting new affiliates", "verified": false, "source": "https://supademo.com/blog/saas-affiliate-programs", "checkedAt": "2026-11-10" },
       "cookieDays": { "value": null, "verified": false, "source": null },
       "approvedChannels": [],
       "restrictions": [],
       "trackingTemplate": null,
       "paymentStatus": "none",
-      "notes": "Major Danish competitor to Dinero; we must cover it fairly whether or not it pays commission."
-    },
-    {
-      "id": "e-conomic",
-      "name": "e-conomic",
-      "website": "https://www.e-conomic.dk",
-      "network": "unknown",
-      "networkProgramId": null,
-      "applicationStatus": "not_applied",
-      "commission": { "text": "unknown: research needed", "verified": false, "source": null, "checkedAt": "2026-11-10" },
-      "cookieDays": { "value": null, "verified": false, "source": null },
-      "approvedChannels": [],
-      "restrictions": [],
-      "trackingTemplate": null,
-      "paymentStatus": "none",
-      "notes": "Market leader; cover regardless of commission."
+      "notes": "Low priority until status confirmed."
     }
   ]
 }

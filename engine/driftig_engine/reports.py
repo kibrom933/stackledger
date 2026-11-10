@@ -38,7 +38,7 @@ def refresh_candidates(perf: list[dict], today: date | None = None) -> list[dict
         meta = frontmatter.load(p).metadata
         updated = meta.get("updated")
         if updated and meta.get("status") == "published" and (today - date.fromisoformat(str(updated))).days > 180:
-            out.append({"page": p.stem, "reason": "not updated for 180+ days: re-check prices, plans and rules", "priority": 50})
+            out.append({"page": p.stem, "reason": "not updated for 180+ days: re-check prices, plans, privacy terms and rules", "priority": 50})
     return sorted(out, key=lambda x: x["priority"], reverse=True)
 
 
@@ -56,26 +56,26 @@ def weekly(today: date | None = None) -> Path:
     for c in comm:
         by_status[c["status"]] += float(c["amount_dkk"])
         if c["status"] in ("confirmed", "paid"):
-            by_page[c.get("page_slug") or "ukendt"] += float(c["amount_dkk"])
-    lines = [f"# Ugerapport {today.isoformat()}", ""]
+            by_page[c.get("page_slug") or "unknown"] += float(c["amount_dkk"])
+    lines = [f"# Weekly report {today.isoformat()}", ""]
     if not db.configured():
-        lines += ["> Supabase er ikke forbundet: rapporten er tom. Sæt SUPABASE_URL og SUPABASE_SERVICE_ROLE_KEY.", ""]
+        lines += ["> Supabase is not connected, so this report is empty. Set SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.", ""]
     lines += [
-        "## Penge (seneste 7 dage, efter transaktionsdato)",
-        f"- Estimeret (afventer netværk): {by_status['pending']:,.0f} kr",
-        f"- Bekræftet: {by_status['confirmed']:,.0f} kr",
-        f"- Udbetalt: {by_status['paid']:,.0f} kr",
-        f"- Afvist: {by_status['rejected']:,.0f} kr",
-        "", "## Klik på reklamelinks", f"- I alt: {len(clicks)}",
+        "## Money (last 7 days, by transaction date)",
+        f"- Estimated (pending at network): {by_status['pending']:,.0f} DKK",
+        f"- Confirmed: {by_status['confirmed']:,.0f} DKK",
+        f"- Paid: {by_status['paid']:,.0f} DKK",
+        f"- Rejected: {by_status['rejected']:,.0f} DKK",
+        "", "## Affiliate link clicks", f"- Total: {len(clicks)}",
         *[f"- {k}: {v}" for k, v in Counter(c['page_slug'] for c in clicks).most_common(10)],
-        "", "## Sider der tjener penge (bekræftet + udbetalt)",
-        *([f"- {k}: {v:,.0f} kr" for k, v in by_page.most_common(10)] or ["- Ingen endnu."]),
-        "", "## Forslag til opdatering",
-        *([f"- **{r['page']}**: {r['reason']}" for r in refresh_candidates(perf, today)[:10]] or ["- Ingen."]),
-        "", "## Afventer din beslutning",
-        *([f"- [{a['kind']}] {a['subject']}" for a in approvals] or ["- Intet."]),
+        "", "## Pages that earn (confirmed + paid)",
+        *([f"- {k}: {v:,.0f} DKK" for k, v in by_page.most_common(10)] or ["- None yet."]),
+        "", "## Suggested refreshes",
+        *([f"- **{r['page']}**: {r['reason']}" for r in refresh_candidates(perf, today)[:10]] or ["- None."]),
+        "", "## Waiting for your decision",
+        *([f"- [{a['kind']}] {a['subject']}" for a in approvals] or ["- Nothing."]),
         "", "## Jobs",
-        f"- Kørsler: {len(jobs)}, fejlede: {sum(1 for j in jobs if not j.get('ok'))}",
+        f"- Runs: {len(jobs)}, failed: {sum(1 for j in jobs if not j.get('ok'))}",
     ]
     REPORTS_DIR.mkdir(exist_ok=True)
     out = REPORTS_DIR / f"weekly-{today.isoformat()}.md"

@@ -11,8 +11,8 @@ import math
 from dataclasses import dataclass
 from pathlib import Path
 
-COMMERCIAL_HINTS = ("bedste", "test", "anmeldelse", " vs ", "pris", "billig", "gratis", "alternativ", "sammenlign", "best", "review", "program", "system", "app")
-INFO_HINTS = ("hvordan", "hvorfor", "hvad", "hvornår", "regler", "krav", "frist", "sådan", "guide")
+COMMERCIAL_HINTS = ("best", " vs ", "review", "pricing", "price", "alternative", "alternatives", "compare", "comparison", "cheap", "free", "discount", "tool", "software", "app")
+INFO_HINTS = ("how to", "how do", "what is", "why", "when", "is it legal", "gdpr", "ai act", "rules", "guide")
 INTENT_WEIGHT = {"transactional": 1.0, "commercial": 0.9, "informational": 0.45, "navigational": 0.1}
 
 

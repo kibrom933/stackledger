@@ -29,6 +29,7 @@ export type Product = {
   priceCheckedAt?: string;
   /** e.g. "/md." */
   priceUnit?: string;
+  currency?: "USD" | "EUR" | "DKK";
   facts: { text: string; source: string; checkedAt: string }[];
   imageUrl?: string;
   imageLicense?: string;

@@ -16,12 +16,12 @@ export type Dashboard = {
 
 const top = (rows: Record<string, unknown>[], k: string) => {
   const m = new Map<string, number>();
-  for (const r of rows) { const key = String(r[k] ?? "ukendt"); m.set(key, (m.get(key) ?? 0) + 1); }
+  for (const r of rows) { const key = String(r[k] ?? "unknown"); m.set(key, (m.get(key) ?? 0) + 1); }
   return [...m].map(([key, n]) => ({ key, n })).sort((a, b) => b.n - a.n).slice(0, 10);
 };
 const sumBy = (rows: { amount_dkk: number }[] & Record<string, unknown>[], k: string) => {
   const m = new Map<string, number>();
-  for (const r of rows) { const key = String(r[k] ?? "ukendt"); m.set(key, (m.get(key) ?? 0) + Number(r.amount_dkk)); }
+  for (const r of rows) { const key = String(r[k] ?? "unknown"); m.set(key, (m.get(key) ?? 0) + Number(r.amount_dkk)); }
   return [...m].map(([key, amount]) => ({ key, amount })).sort((a, b) => b.amount - a.amount).slice(0, 10);
 };
 

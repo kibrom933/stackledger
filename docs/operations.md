@@ -4,7 +4,7 @@
 
 1. `driftig opportunities keywords.csv --save` scores topics from a keyword export or Search Console (volumes are never guessed).
 2. Write source notes for the topic: official sources, vendor pages, and our own trial-account test notes with screenshots in `web/public/screens/`.
-3. `driftig draft "bedste regnskabsprogram til enkeltmandsvirksomhed" --category regnskab --kind comparison --notes notes.md --products dinero-start ...` writes `content/guides/<slug>.md` with `status: draft` and runs QA.
+3. `driftig draft "best ai meeting notetaker for eu teams" --category meetings --kind comparison --notes notes.md --products fireflies-pro ...` writes `content/guides/<slug>.md` with `status: draft` and runs QA.
 4. Fix everything QA reports and every `open_questions` item. Set `status: review` and open a pull request. CI runs the gate again.
 5. A human reads the page and sources, sets `status: published`, adds `hands_on: true` only if we really tested, and merges. Merge = deploy.
 6. `driftig social <slug>` makes LinkedIn, Pinterest and video drafts for the published guide (`content/social/`). Post only through official APIs or approved schedulers.
@@ -18,7 +18,7 @@ Routine content types can be promoted to autopublish later by recording an `appr
 
 ## Money
 
-- Export commission CSVs from Partner-ads / PartnerStack and run `driftig import-commissions <network> file.csv`. Pending, confirmed, rejected and paid are kept apart; the dashboard counts only confirmed + paid as earnings.
+- Export commission CSVs from PartnerStack, Rewardful or FirstPromoter and run `driftig import-commissions <network> file.csv --usd-dkk <rate>`. Pending, confirmed, rejected and paid are kept apart; the dashboard counts only confirmed + paid as earnings.
 - Record costs in the `expenses` table (hosting, software, AI API, domain, legal).
 
 ## Scheduled work
@@ -33,4 +33,4 @@ Routine content types can be promoted to autopublish later by recording an `appr
 - [ ] Supabase project in an EU region; migration applied
 - [ ] Plausible site, Resend domain (SPF/DKIM), sender address
 - [ ] `ADMIN_PASSWORD` set; Search Console verified; sitemap submitted
-- [ ] Disclosure wording checked against Forbrugerombudsmanden's own guidance
+- [ ] Disclosure wording checked against FTC and Forbrugerombudsmanden guidance

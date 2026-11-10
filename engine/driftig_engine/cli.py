@@ -26,14 +26,15 @@ def main(argv: list[str] | None = None) -> int:
     o.add_argument("csv", type=Path)
     o.add_argument("--save", action="store_true", help="Upsert into Supabase")
     d = sub.add_parser("draft", help="Draft a guide with Claude (writes a draft file)")
-    d.add_argument("keyword"); d.add_argument("--category", required=True)
+    d.add_argument("keyword"); d.add_argument("--category", required=True, choices=["writing", "meetings", "voice-video", "automation", "sales", "rules"])
     d.add_argument("--kind", default="guide", choices=["guide", "comparison", "review", "article"])
     d.add_argument("--notes", type=Path, required=True, help="File with sources and hands-on test notes")
     d.add_argument("--products", nargs="*", default=[])
     s = sub.add_parser("social", help="Make channel drafts from a published guide")
     s.add_argument("slug")
     c = sub.add_parser("import-commissions", help="Import a network CSV export")
-    c.add_argument("network", choices=["partner-ads", "partnerstack"]); c.add_argument("csv", type=Path)
+    c.add_argument("network", choices=["partnerstack", "rewardful", "firstpromoter", "partner-ads"]); c.add_argument("csv", type=Path)
+    c.add_argument("--usd-dkk", type=float, default=1.0, help="FX rate when the export is in USD")
     sub.add_parser("weekly-report")
     sub.add_parser("finance")
     sub.add_parser("partners", help="Show partner status and what is unverified")
@@ -72,7 +73,7 @@ def main(argv: list[str] | None = None) -> int:
     if a.cmd == "import-commissions":
         from .commissions import import_csv
         lookup = {pp["name"].lower(): pp["id"] for pp in json.loads((DATA_DIR / "partners.json").read_text())["partners"]}
-        n = import_csv(a.network, a.csv, lookup)
+        n = import_csv(a.network, a.csv, lookup, a.usd_dkk)
         print(f"Imported {n} rows"); _log("import-commissions", True, {"network": a.network, "rows": n})
         return 0
     if a.cmd == "weekly-report":

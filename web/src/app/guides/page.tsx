@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allGuides } from "@/lib/content";
 import { GuideSearch } from "@/components/GuideSearch";
 
-export const metadata: Metadata = { title: "Alle guides", description: "Søg i alle Driftigs guides om regnskab, fakturering, salg, webshop og AI-værktøjer til små virksomheder." };
+export const metadata: Metadata = { title: "All guides", description: "Search every Driftig guide and review of AI tools for freelancers and small teams." };
 
 export default function GuidesPage() {
   const items = allGuides().map((g) => ({

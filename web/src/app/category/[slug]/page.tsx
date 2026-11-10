@@ -23,7 +23,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <p className="mt-3 max-w-2xl text-lg text-muted">{c.blurb}</p>
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {guides.map((g) => <GuideCard key={g.slug} g={g} />)}
-        {guides.length === 0 && <p className="text-muted">Vi arbejder på de første guides i denne kategori.</p>}
+        {guides.length === 0 && <p className="text-muted">We are working on the first guides in this category.</p>}
       </div>
     </div>
   );

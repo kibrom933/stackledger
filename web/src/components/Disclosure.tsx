@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-/** Shown at the top of every page that contains (or may contain) affiliate links. Danish guidance: say it before the reader engages. */
+/** Shown before the content on every page with commissioned links: disclose before the reader engages (FTC; Danish marketing law). */
 export function Disclosure({ hasAffiliateLinks }: { hasAffiliateLinks: boolean }) {
   if (!hasAffiliateLinks) return null;
   return (
     <aside role="note" className="rounded-xl border border-ochre/40 bg-ochre-soft px-4 py-3 text-sm">
-      <strong>Reklame:</strong> Denne side indeholder reklamelinks. Opretter du en konto eller køber via et af dem, får Driftig provision,
-      uden at prisen ændrer sig for dig. Provision påvirker ikke vores vurderinger.{" "}
-      <Link href="/annoncering" className="underline underline-offset-2">Læs mere</Link>
+      <strong>Advertising disclosure:</strong> This page contains affiliate links. If you sign up or buy through one, Driftig earns a
+      commission from the vendor at no extra cost to you. Commissions never decide our verdicts.{" "}
+      <Link href="/affiliate-disclosure" className="underline underline-offset-2">How we make money</Link>
     </aside>
   );
 }

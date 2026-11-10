@@ -14,16 +14,17 @@ from pydantic import BaseModel, Field
 
 from .config import MODEL, SOCIAL_DIR
 
-SYSTEM = """Du laver opslag til Driftigs kanaler ud fra en godkendt guide. Brug kun indhold fra guiden.
-Ingen påståede egne oplevelser ud over guidens testnoter, ingen løfter om besparelser, ingen pres. Opslag med link til produkter skal starte med 'Reklame'.
-LinkedIn: et fagligt opslag på 600-1200 tegn med én pointe fra guiden.\nPinterest: nyttig titel (maks 100 tegn) og beskrivelse (maks 450 tegn) med naturlige søgeord.
-Reels/Shorts: 20-40 sekunder, hook i første 2 sekunder, 4-6 scener, tekst på skærm og voice-over hver for sig."""
+SYSTEM = """You turn an approved Driftig guide into channel posts. Use only what the guide says.
+No claimed experience beyond the guide's test notes, no promised savings, no pressure. Posts with affiliate links start with "Ad:" and say the link earns a commission.
+LinkedIn: one practical post of 600-1200 characters with one takeaway from the guide.
+Pinterest: a useful title (max 100 characters) and description (max 450 characters) with natural keywords.
+Reels/Shorts: 20-40 seconds, a hook in the first 2 seconds, 4-6 scenes, on-screen text and voice-over kept separate."""
 
 
 class Pin(BaseModel):
     title: str
     description: str
-    image_brief: str = Field(description="Beskrivelse af en grafik vi selv laver (egne skærmbilleder eller grafik, ingen leverandørbilleder uden licens)")
+    image_brief: str = Field(description="Beskrivelse af en grafik vi selv laver (our own screenshots or graphics; no vendor images without a licence)")
     board: str
 
 
@@ -51,7 +52,7 @@ def make_pack(guide_path: Path, client: anthropic.Anthropic | None = None) -> Pa
     resp = client.messages.parse(
         model=MODEL, max_tokens=16000, output_config={"effort": "medium"},
         system=[{"type": "text", "text": SYSTEM, "cache_control": {"type": "ephemeral"}}],
-        messages=[{"role": "user", "content": f"Guide: {post['title']}\nURL-slug: {guide_path.stem}\n\n{post.content}"}],
+        messages=[{"role": "user", "content": f"Guide: {post['title']}\nURL slug: {guide_path.stem}\n\n{post.content}"}],
         output_format=ChannelPack,
     )
     if resp.stop_reason == "refusal":

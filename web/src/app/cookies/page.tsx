@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { TextPage } from "@/components/TextPage";
 
-export const metadata: Metadata = { title: "Cookies", description: "Driftig sætter ingen cookies. Her kan du læse hvorfor, og hvad der sker, når du klikker videre til et softwarefirma." };
+export const metadata: Metadata = { title: "Cookies", description: "Driftig sets no cookies. Here is why, and what happens when you click through to a vendor." };
 
 export default function Cookies() {
   return (
-    <TextPage title="Cookies" updated="10. november 2026">
-      <p><strong>Driftig.dk sætter ingen cookies</strong> og gemmer ikke andre oplysninger på din enhed. Derfor viser vi ikke et cookie-banner.</p>
-      <p>Vores besøgsstatistik (Plausible) virker uden cookies og uden at gemme din IP-adresse.</p>
-      <h2>Når du klikker videre til et softwarefirma</h2>
-      <p>Klikker du på et reklamelink, sender vi dig videre til firmaet. Firmaet eller affiliate-netværket (fx Partner-ads eller PartnerStack) sætter så deres egen cookie på deres eget domæne, så de kan registrere, at et eventuelt køb kom fra os. Den cookie er omfattet af firmaets og netværkets cookiepolitik, og du giver dit samtykke hos dem.</p>
-      <p>Tilføjer vi senere noget, der sætter cookies (fx en video fra YouTube), spørger vi om lov først, og du kan altid trække samtykket tilbage her på siden.</p>
+    <TextPage title="Cookies" updated="10 November 2026">
+      <p><strong>Driftig sets no cookies</strong> and stores nothing else on your device, so we show no cookie banner.</p>
+      <p>Our statistics (Plausible) work without cookies and without storing your IP address.</p>
+      <h2>When you click through to a vendor</h2>
+      <p>When you click an affiliate link we send you to the vendor. The vendor or its affiliate platform (for example PartnerStack) then sets its own cookie on its own domain to record that a sign-up came from us. That cookie is covered by their cookie policy and consent.</p>
+      <p>If we ever add something that sets cookies, such as an embedded YouTube video, we will ask first, and you will be able to withdraw consent here.</p>
     </TextPage>
   );
 }

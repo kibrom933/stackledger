@@ -14,26 +14,26 @@ export default async function Admin() {
   const ctr = d.visitors30d ? (d.clicks30d / d.visitors30d) * 100 : null;
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="font-display text-3xl font-semibold">Drift: de seneste 30 dage</h1>
-      {!d.configured && <p className="mt-4 rounded-lg bg-ochre-soft p-4 text-sm">Supabase er ikke sat op endnu (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Tallene er tomme.</p>}
+      <h1 className="font-display text-3xl font-semibold">Operations: last 30 days</h1>
+      {!d.configured && <p className="mt-4 rounded-lg bg-ochre-soft p-4 text-sm">Supabase is not configured yet (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Numbers are empty.</p>}
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Tile label="Besøgende" value={d.visitors30d?.toLocaleString("da-DK") ?? "–"} note={d.visitors30d === null ? "Plausible ikke forbundet" : undefined} />
-        <Tile label="Klik på reklamelinks" value={d.clicks30d.toLocaleString("da-DK")} note={ctr !== null ? `${ctr.toFixed(1)} % af besøgende` : undefined} />
-        <Tile label="Bekræftet + udbetalt provision" value={dkk(earned)} note="Kun tal, netværket har godkendt" />
-        <Tile label="Netto (måned til dato)" value={dkk(earned - d.expensesMonth)} note={`Udgifter: ${dkk(d.expensesMonth)}`} />
+        <Tile label="Visitors" value={d.visitors30d?.toLocaleString("da-DK") ?? "–"} note={d.visitors30d === null ? "Plausible not connected" : undefined} />
+        <Tile label="Affiliate link clicks" value={d.clicks30d.toLocaleString("da-DK")} note={ctr !== null ? `${ctr.toFixed(1)} % of visitors` : undefined} />
+        <Tile label="Confirmed + paid commission" value={dkk(earned)} note="Only what networks have approved" />
+        <Tile label="Net (month to date)" value={dkk(earned - d.expensesMonth)} note={`Expenses: ${dkk(d.expensesMonth)}`} />
       </div>
       <div className="mt-4 grid gap-4 sm:grid-cols-3">
-        <Tile label="Estimeret (ikke godkendt)" value={dkk(amount("pending"))} note="Kan blive annulleret" />
-        <Tile label="Afvist" value={dkk(amount("rejected"))} />
-        <Tile label="Nyhedsbrev, bekræftede" value={String(d.subscribers)} />
+        <Tile label="Estimated (pending)" value={dkk(amount("pending"))} note="May still be reversed" />
+        <Tile label="Rejected" value={dkk(amount("rejected"))} />
+        <Tile label="Newsletter, confirmed" value={String(d.subscribers)} />
       </div>
       <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <Table title="Klik pr. side" rows={d.clicksByPage.map((r) => [r.key, String(r.n)])} />
-        <Table title="Klik pr. partner" rows={d.clicksByPartner.map((r) => [r.key, String(r.n)])} />
-        <Table title="Klik pr. kanal" rows={d.clicksByChannel.map((r) => [r.key, String(r.n)])} />
-        <Table title="Indtjening pr. partner" rows={d.revenueByPartner.map((r) => [r.key, dkk(r.amount)])} />
-        <Table title="Indtjening pr. side" rows={d.revenueByPage.map((r) => [r.key, dkk(r.amount)])} />
-        <Table title="Partnerstatus" rows={partners.map((p) => [p.name, p.applicationStatus])} />
+        <Table title="Clicks by page" rows={d.clicksByPage.map((r) => [r.key, String(r.n)])} />
+        <Table title="Clicks by partner" rows={d.clicksByPartner.map((r) => [r.key, String(r.n)])} />
+        <Table title="Clicks by channel" rows={d.clicksByChannel.map((r) => [r.key, String(r.n)])} />
+        <Table title="Earnings by partner" rows={d.revenueByPartner.map((r) => [r.key, dkk(r.amount)])} />
+        <Table title="Earnings by page" rows={d.revenueByPage.map((r) => [r.key, dkk(r.amount)])} />
+        <Table title="Partner status" rows={partners.map((p) => [p.name, p.applicationStatus])} />
       </div>
     </div>
   );
@@ -53,7 +53,7 @@ function Table({ title, rows }: { title: string; rows: string[][] }) {
   return (
     <div className="rounded-2xl border border-line p-5">
       <p className="font-medium">{title}</p>
-      {rows.length === 0 ? <p className="mt-3 text-sm text-muted">Ingen data endnu.</p> : (
+      {rows.length === 0 ? <p className="mt-3 text-sm text-muted">No data yet.</p> : (
         <table className="mt-3 w-full text-sm">
           <tbody>{rows.map(([a, b]) => <tr key={a} className="border-t border-line"><td className="py-1.5 pr-2">{a}</td><td className="py-1.5 text-right tabular-nums">{b}</td></tr>)}</tbody>
         </table>

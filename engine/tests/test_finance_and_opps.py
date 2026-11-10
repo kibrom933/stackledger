@@ -18,6 +18,6 @@ def test_sessions_needed_roundtrip():
 
 
 def test_intent():
-    assert classify_intent("bedste regnskabsprogram") == "commercial"
-    assert classify_intent("hvornår skal jeg bogføre digitalt") == "informational"
+    assert classify_intent("best ai notetaker") == "commercial"
+    assert classify_intent("is it legal to record meetings with ai") == "informational"
     assert score("commercial", None, None) > score("informational", None, None)
