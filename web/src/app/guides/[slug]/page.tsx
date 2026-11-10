@@ -50,7 +50,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <div className="mt-6 max-w-3xl"><Disclosure hasAffiliateLinks={hasAffiliate} /></div>
       <div className="mt-10 grid gap-12 lg:grid-cols-[1fr_16rem]">
         <div>
-          <div className="prose prose-lg prose-driftig max-w-none" dangerouslySetInnerHTML={{ __html: g.html }} />
+          <div className="prose prose-lg prose-stackledger max-w-none" dangerouslySetInnerHTML={{ __html: g.html }} />
           {products.length > 0 && (
             <section className="mt-12 space-y-4">
               <h2 className="font-display text-2xl font-semibold">Tools in this guide</h2>

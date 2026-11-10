@@ -14,7 +14,7 @@ from pydantic import BaseModel, Field
 
 from .config import MODEL, SOCIAL_DIR
 
-SYSTEM = """You turn an approved Driftig guide into channel posts. Use only what the guide says.
+SYSTEM = """You turn an approved Stackledger guide into channel posts. Use only what the guide says.
 No claimed experience beyond the guide's test notes, no promised savings, no pressure. Posts with affiliate links start with "Ad:" and say the link earns a commission.
 LinkedIn: one practical post of 600-1200 characters with one takeaway from the guide.
 Pinterest: a useful title (max 100 characters) and description (max 450 characters) with natural keywords.

@@ -1,7 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 
 export const CONSENT_TEXT =
-  "Yes, send me Driftig's monthly newsletter. It may contain affiliate links. I can unsubscribe at any time.";
+  "Yes, send me Stackledger's monthly newsletter. It may contain affiliate links. I can unsubscribe at any time.";
 
 export const newToken = () => randomBytes(24).toString("base64url");
 export const hashToken = (t: string) => createHash("sha256").update(t).digest("hex");

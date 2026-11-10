@@ -25,8 +25,8 @@ export async function POST(req: Request) {
   if (error) { console.error(error.message); return NextResponse.json({ message: "Something went wrong." }, { status: 500 }); }
 
   const link = `${site.url}/api/newsletter/confirm?token=${confirm}`;
-  const sent = await sendEmail(email, "Confirm your Driftig subscription",
-    `<p>Hi!</p><p>Click to confirm that you want Driftig's monthly newsletter:</p><p><a href="${link}">Confirm subscription</a></p><p>If you did not ask for this, ignore this email and nothing will happen.</p>`);
+  const sent = await sendEmail(email, "Confirm your Stackledger subscription",
+    `<p>Hi!</p><p>Click to confirm that you want Stackledger's monthly newsletter:</p><p><a href="${link}">Confirm subscription</a></p><p>If you did not ask for this, ignore this email and nothing will happen.</p>`);
   if (!sent && process.env.NODE_ENV !== "production") console.info("[dev] confirm link:", link);
   return NextResponse.json({ message: "Check your inbox and confirm your subscription." });
 }

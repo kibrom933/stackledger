@@ -1,4 +1,4 @@
-# Driftig: strategy and first execution report
+# Stackledger: strategy and first execution report
 
 > **Decision, 10 Nov 2026:** the owner chose **English AI tools for a global audience** (finalist #2 below) over my recommendation of Danish small-business software. Sections 3-10 reflect that choice.
 
@@ -64,12 +64,12 @@ Main risks: brutal competition (a third-party report claims 71% of affiliate sit
 
 ## 5. Brand concept
 
-- **Name: Driftig** (kept, as on the decision card). Scandinavian for "enterprising"; to English ears it is short, unusual and ownable, and hints at the European origin. If you would prefer an English-language name, now is the cheapest time to change it.
+- **Name: Stackledger** (chosen 2026-11-10, replacing Driftig). A ledger for your AI stack: what each tool really costs and what it does with your data. Easy to say and spell in English; web search found no AI-tools site using it (trademark and domain not yet checked).
 - **Promise:** "AI tools that earn their subscription. Tested, priced, privacy-checked."
 - **Positioning:** the calm European second opinion on AI tools: own accounts, dated prices, data and GDPR facts, plain disclosure.
 - **Voice:** practical, friendly, no hype or fake urgency; "not stated" when a vendor does not say.
-- **Look:** unchanged (forest green, warm paper, ochre; Fraunces + Inter; "D" monogram; light and dark).
-- **Domain:** driftig.com is the natural choice for a global site; availability **not checked** (DNS blocked here). Fallbacks: driftig.ai, getdriftig.com, driftig.io. Registering needs your approval.
+- **Look:** unchanged (forest green, warm paper, ochre; Fraunces + Inter; "S" monogram; light and dark).
+- **Domain:** stackledger.com is the natural choice for a global site; availability **not checked** (DNS blocked here). Fallbacks: stackledger.io, stackledger.co, getstackledger.com. Registering needs your approval.
 
 ## 6. Technical architecture
 

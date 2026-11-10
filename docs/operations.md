@@ -1,13 +1,13 @@
-# Operating Driftig
+# Operating Stackledger
 
 ## Content lifecycle (git is the approval ledger)
 
-1. `driftig opportunities keywords.csv --save` scores topics from a keyword export or Search Console (volumes are never guessed).
+1. `stackledger opportunities keywords.csv --save` scores topics from a keyword export or Search Console (volumes are never guessed).
 2. Write source notes for the topic: official sources, vendor pages, and our own trial-account test notes with screenshots in `web/public/screens/`.
-3. `driftig draft "best ai meeting notetaker for eu teams" --category meetings --kind comparison --notes notes.md --products fireflies-pro ...` writes `content/guides/<slug>.md` with `status: draft` and runs QA.
+3. `stackledger draft "best ai meeting notetaker for eu teams" --category meetings --kind comparison --notes notes.md --products fireflies-pro ...` writes `content/guides/<slug>.md` with `status: draft` and runs QA.
 4. Fix everything QA reports and every `open_questions` item. Set `status: review` and open a pull request. CI runs the gate again.
 5. A human reads the page and sources, sets `status: published`, adds `hands_on: true` only if we really tested, and merges. Merge = deploy.
-6. `driftig social <slug>` makes LinkedIn, Pinterest and video drafts for the published guide (`content/social/`). Post only through official APIs or approved schedulers.
+6. `stackledger social <slug>` makes LinkedIn, Pinterest and video drafts for the published guide (`content/social/`). Post only through official APIs or approved schedulers.
 
 Routine content types can be promoted to autopublish later by recording an `approvals` row of kind `channel_autopublish`; until then every page needs a human merge.
 
@@ -18,7 +18,7 @@ Routine content types can be promoted to autopublish later by recording an `appr
 
 ## Money
 
-- Export commission CSVs from PartnerStack, Rewardful or FirstPromoter and run `driftig import-commissions <network> file.csv --usd-dkk <rate>`. Pending, confirmed, rejected and paid are kept apart; the dashboard counts only confirmed + paid as earnings.
+- Export commission CSVs from PartnerStack, Rewardful or FirstPromoter and run `stackledger import-commissions <network> file.csv --usd-dkk <rate>`. Pending, confirmed, rejected and paid are kept apart; the dashboard counts only confirmed + paid as earnings.
 - Record costs in the `expenses` table (hosting, software, AI API, domain, legal).
 
 ## Scheduled work

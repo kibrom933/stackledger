@@ -1,4 +1,4 @@
-# Driftig
+# Stackledger
 
 Independent, Europe-based reviews of AI tools for freelancers and small teams, run as an
 affiliate business with Claude as the operating engine and a human approving what matters.
@@ -15,7 +15,7 @@ and [docs/operations.md](docs/operations.md) for how the system runs day to day.
 | `data/partners.json` | Affiliate partner database (status, commission with source, cookie, restrictions, tracking template) |
 | `data/products.json` | Products/plans with sourced facts and dated prices |
 | `supabase/migrations/` | Database schema (clicks, subscribers, commissions, expenses, opportunities, content queue, approvals, job runs, search performance) |
-| `engine/` | Python CLI `driftig`: qa, opportunities, draft, social, import-commissions, weekly-report, finance, partners |
+| `engine/` | Python CLI `stackledger`: qa, opportunities, draft, social, import-commissions, weekly-report, finance, partners |
 | `.github/workflows/` | CI (lint, build, tests, content QA) and scheduled weekly report |
 
 ## Run it
@@ -27,9 +27,9 @@ cd web && cp .env.example .env.local && npm install && npm run dev   # http://lo
 # engine
 cd engine && python3 -m venv .venv && .venv/bin/pip install -e '.[dev]'
 .venv/bin/pytest -q
-.venv/bin/driftig qa          # content quality gate
-.venv/bin/driftig finance     # scenario model
-.venv/bin/driftig partners    # partner status, flags unverified figures
+.venv/bin/stackledger qa          # content quality gate
+.venv/bin/stackledger finance     # scenario model
+.venv/bin/stackledger partners    # partner status, flags unverified figures
 ```
 
 Drafts and pages in `review` are visible in development and hidden in production unless `SHOW_DRAFTS=1`.

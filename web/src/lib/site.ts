@@ -1,5 +1,5 @@
 export const site = {
-  name: "Driftig",
+  name: "Stackledger",
   tagline: "AI tools, tested from Europe: what they cost, what they do with your data, and whether they're worth it",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_US",

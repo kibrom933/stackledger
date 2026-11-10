@@ -3,7 +3,7 @@ import { TextPage } from "@/components/TextPage";
 import { company } from "@/lib/company";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Privacy policy", description: "What data Driftig processes, why, for how long, and your rights under the GDPR." };
+export const metadata: Metadata = { title: "Privacy policy", description: "What data Stackledger processes, why, for how long, and your rights under the GDPR." };
 
 export default function Privacy() {
   return (

@@ -5,7 +5,7 @@ type: guide
 category: rules
 status: review
 updated: 2026-11-10
-author: Driftig editors
+author: Stackledger editors
 products: []
 sources:
   - title: "Future of Privacy Forum: The AI Act implementation timeline, what changes under the AI Omnibus (28 July 2026, updated 5 August 2026)"

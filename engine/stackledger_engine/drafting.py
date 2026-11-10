@@ -16,7 +16,7 @@ from pydantic import BaseModel, Field
 
 from .config import CONTENT_DIR, DATA_DIR, MODEL
 
-SYSTEM = """You are an editor at Driftig, an independent site that reviews AI tools for freelancers and small teams, written from Europe for a global English-speaking audience.
+SYSTEM = """You are an editor at Stackledger, an independent site that reviews AI tools for freelancers and small teams, written from Europe for a global English-speaking audience.
 
 Rules (breaking any of them makes the article unusable):
 - Write clear, friendly, plain English for busy people. No filler, no hype, no buzzwords.
@@ -74,7 +74,7 @@ def draft_article(keyword: str, category: str, kind: str, source_notes: str, pro
     post = frontmatter.Post(
         d.body_markdown,
         title=d.title, description=d.description, type=kind, category=category, status="draft",
-        updated=date.today().isoformat(), author="Driftig editors", products=product_ids or [],
+        updated=date.today().isoformat(), author="Stackledger editors", products=product_ids or [],
         sources=[s.model_dump() for s in d.sources], open_questions=d.open_questions, ai_assisted=True,
     )
     path = CONTENT_DIR / f"{_slug(d.slug or d.title)}.md"

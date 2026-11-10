@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <header className="sticky top-0 z-20 border-b border-line bg-paper/90 backdrop-blur">
           <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
             <Link href="/" className="flex items-center gap-2 font-display text-xl font-semibold tracking-tight">
-              <PawMark /> {site.name}
+              <BrandMark /> {site.name}
             </Link>
             <nav aria-label="Main" className="flex items-center gap-1 text-sm">
               <Link href="/guides" className="rounded-full px-3 py-2 hover:bg-forest-soft">Guides</Link>
@@ -71,12 +71,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   );
 }
 
-function PawMark() {
+function BrandMark() {
   return (
     <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden className="text-forest">
       <rect width="32" height="32" rx="9" fill="currentColor" />
-      <path d="M10 8h6.5a8 8 0 0 1 0 16H10z" fill="none" stroke="var(--color-paper)" strokeWidth="3" />
-      <circle cx="22.5" cy="22.5" r="2.2" fill="var(--color-ochre)" />
+      <rect x="8" y="9" width="16" height="3" rx="1.5" fill="var(--color-paper)" />
+      <rect x="8" y="14.5" width="16" height="3" rx="1.5" fill="var(--color-paper)" />
+      <rect x="8" y="20" width="10" height="3" rx="1.5" fill="var(--color-paper)" />
+      <circle cx="22.5" cy="21.5" r="2.2" fill="var(--color-ochre)" />
     </svg>
   );
 }

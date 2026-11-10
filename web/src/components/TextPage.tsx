@@ -6,7 +6,7 @@ export function TextPage({ title, updated, children }: { title: string; updated:
       )}
       <h1 className="font-display text-4xl font-semibold">{title}</h1>
       <p className="mt-2 text-sm text-muted">Last updated {updated}</p>
-      <div className="prose prose-lg prose-driftig mt-8 max-w-none">{children}</div>
+      <div className="prose prose-lg prose-stackledger mt-8 max-w-none">{children}</div>
     </div>
   );
 }

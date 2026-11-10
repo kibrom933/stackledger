@@ -19,7 +19,7 @@ def _log(job: str, ok: bool, summary: dict) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
-    p = argparse.ArgumentParser(prog="driftig")
+    p = argparse.ArgumentParser(prog="stackledger")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("qa", help="Run the quality gate on all guides")
     o = sub.add_parser("opportunities", help="Score a keyword CSV")

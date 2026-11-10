@@ -34,7 +34,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.prose-driftig {
+.prose-stackledger {
   --tw-prose-body: var(--color-ink);
   --tw-prose-headings: var(--color-ink);
   --tw-prose-links: var(--color-forest);
@@ -47,4 +47,4 @@ body {
   --tw-prose-td-borders: var(--color-line);
   --tw-prose-hr: var(--color-line);
 }
-.prose-driftig h2, .prose-driftig h3 { font-family: var(--font-display); scroll-margin-top: 6rem; }
+.prose-stackledger h2, .prose-stackledger h3 { font-family: var(--font-display); scroll-margin-top: 6rem; }

@@ -113,7 +113,7 @@ def check_file(path: Path, today: date | None = None) -> QaResult:
         res.warnings.append("rules article never suggests legal advice")
     if re.search(r"[$€£]\s?\d", body) and not re.search(r"(per|/)\s?(month|mo|user|seat|year)", body, re.I):
         res.warnings.append("prices mentioned without a billing unit (per month/user/year)")
-    if re.search(r"https?://(?!www\.driftig\.dk)[^\s)]*(?:awin1|adtraction|partner-ads|partnerstack|impact\.com|amzn\.to|tag=|ref=|via=)", body):
+    if re.search(r"https?://(?!www\.stackledger\.dk)[^\s)]*(?:awin1|adtraction|partner-ads|partnerstack|impact\.com|amzn\.to|tag=|ref=|via=)", body):
         res.errors.append("raw affiliate link in body; use product cards (/go/...) so links are labelled and logged")
     return res
 

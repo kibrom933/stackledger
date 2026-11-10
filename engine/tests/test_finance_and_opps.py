@@ -1,5 +1,5 @@
-from driftig_engine import finance
-from driftig_engine.opportunities import classify_intent, score
+from stackledger_engine import finance
+from stackledger_engine.opportunities import classify_intent, score
 
 
 def test_scenarios_are_ordered():

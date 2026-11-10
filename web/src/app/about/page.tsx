@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { TextPage } from "@/components/TextPage";
 
-export const metadata: Metadata = { title: "How we test", description: "Driftig's editorial rules: how we test AI tools, which sources we use, how we use AI, and how we make money." };
+export const metadata: Metadata = { title: "How we test", description: "Stackledger's editorial rules: how we test AI tools, which sources we use, how we use AI, and how we make money." };
 
 export default function About() {
   return (
     <TextPage title="How we test" updated="10 November 2026">
-      <p>Driftig reviews AI tools for freelancers and small teams. We are based in Copenhagen, so we look at every tool through a European lens: what it really costs, where your data goes, and whether it fits GDPR and the EU AI Act. Our promise is simple: we only write what we can back up.</p>
+      <p>Stackledger reviews AI tools for freelancers and small teams. We are based in Copenhagen, so we look at every tool through a European lens: what it really costs, where your data goes, and whether it fits GDPR and the EU AI Act. Our promise is simple: we only write what we can back up.</p>
       <h2>Our rules</h2>
       <ul>
         <li><strong>Real accounts, real tasks.</strong> When we say &quot;we tested&quot;, we signed up, ran the tasks we describe, and the screenshots come from our own account.</li>

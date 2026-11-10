@@ -1,4 +1,4 @@
--- Driftig operating database. All tables have RLS on and NO public policies:
+-- Stackledger operating database. All tables have RLS on and NO public policies:
 -- only the server (service role) and the Python engine can read/write.
 
 create extension if not exists pgcrypto;

@@ -33,7 +33,7 @@ export function NewsletterForm() {
       <input name="website" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" />
       <label className="flex items-start gap-2 text-sm text-muted">
         <input name="consent" type="checkbox" required className="mt-1" />
-        <span>Yes, send me Driftig&apos;s monthly newsletter. It may contain affiliate links. I can unsubscribe at any time. <Link href="/privacy" className="underline">Privacy</Link></span>
+        <span>Yes, send me Stackledger&apos;s monthly newsletter. It may contain affiliate links. I can unsubscribe at any time. <Link href="/privacy" className="underline">Privacy</Link></span>
       </label>
       {state === "error" && <p role="alert" className="text-sm text-red-600">{msg}</p>}
     </form>

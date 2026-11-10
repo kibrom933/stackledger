@@ -11,7 +11,7 @@ export function middleware(req: NextRequest) {
     const [u, ...rest] = atob(encoded).split(":");
     if (u === user && rest.join(":") === pass) return NextResponse.next();
   }
-  return new NextResponse("Authentication required", { status: 401, headers: { "WWW-Authenticate": 'Basic realm="driftig-admin"' } });
+  return new NextResponse("Authentication required", { status: 401, headers: { "WWW-Authenticate": 'Basic realm="stackledger-admin"' } });
 }
 
 export const config = { matcher: ["/admin/:path*"] };

@@ -1,1 +1,0 @@
-"""Driftig operating engine."""

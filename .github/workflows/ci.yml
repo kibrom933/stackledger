@@ -25,4 +25,4 @@ jobs:
       - run: pip install -e '.[dev]'
       - run: pytest -q
       - name: Content quality gate
-        run: driftig qa
+        run: stackledger qa
