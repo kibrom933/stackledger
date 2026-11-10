@@ -36,13 +36,13 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <article className="mx-auto max-w-6xl px-4 py-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {g.status !== "published" && (
-        <p className="mb-4 rounded-lg bg-accent-soft px-4 py-2 text-sm text-accent">Draft ({g.status}). Not visible in production until approved.</p>
+        <p className="mb-4 border-l-4 border-highlight bg-accent-soft px-4 py-2 font-mono text-xs text-ink">Draft ({g.status}). Not visible in production until approved.</p>
       )}
-      <nav className="text-sm text-muted"><Link href="/guides" className="hover:text-ink">Guides</Link>{cat && <> / <Link href={`/category/${cat.slug}`} className="hover:text-ink">{cat.name}</Link></>}</nav>
+      <nav className="font-mono text-xs uppercase tracking-[0.2em] text-muted"><Link href="/guides" className="hover:text-ink">Guides</Link>{cat && <> / <Link href={`/category/${cat.slug}`} className="hover:text-ink">{cat.name}</Link></>}</nav>
       <header className="mt-4 max-w-3xl">
-        <h1 className="font-display text-3xl font-semibold leading-tight [overflow-wrap:anywhere] hyphens-auto sm:text-5xl">{g.title}</h1>
+        <h1 className="font-display text-3xl font-bold leading-[1.08] tracking-[-0.03em] [overflow-wrap:anywhere] hyphens-auto sm:text-5xl">{g.title}</h1>
         <p className="mt-4 text-lg text-muted">{g.description}</p>
-        <p className="mt-4 text-sm text-muted">
+        <p className="mt-5 border-y border-line py-3 font-mono text-xs text-muted">
           Updated {g.updated.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })} · {g.readingMinutes} min read · By {g.author}
           {g.reviewedBy && <> · Reviewed by {g.reviewedBy}</>}
         </p>
@@ -53,12 +53,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <div className="prose prose-lg prose-stackledger max-w-none" dangerouslySetInnerHTML={{ __html: g.html }} />
           {products.length > 0 && (
             <section className="mt-12 space-y-4">
-              <h2 className="font-display text-2xl font-semibold">Tools in this guide</h2>
+              <h2 className="font-display text-2xl font-bold tracking-tight">Tools in this guide</h2>
               {products.map((p) => <ProductCard key={p.id} product={p} fromSlug={g.slug} />)}
             </section>
           )}
-          <section className="mt-12 rounded-md border border-line p-6 text-sm">
-            <h2 className="font-display text-lg font-semibold">Sources</h2>
+          <section className="mt-12 rounded-md border border-ink/80 p-6 text-sm">
+            <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Sources</h2>
             <ol className="mt-3 list-decimal space-y-1 pl-5">
               {g.sources.map((s) => <li key={s.url}><a href={s.url} className="underline underline-offset-2" rel="noopener" target="_blank">{s.title}</a></li>)}
             </ol>
@@ -68,8 +68,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         {g.headings.length > 2 && (
           <aside className="hidden lg:block">
             <div className="sticky top-24 text-sm">
-              <p className="font-medium">On this page</p>
-              <ul className="mt-2 space-y-2 border-l border-line pl-4 text-muted">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">On this page</p>
+              <ul className="mt-3 space-y-2 border-l-2 border-ink/80 pl-4 text-muted">
                 {g.headings.map((h) => <li key={h.id}><a href={`#${h.id}`} className="hover:text-ink">{h.text}</a></li>)}
               </ul>
             </div>

@@ -40,8 +40,8 @@ export default function Home() {
       </section>
 
       <section className="mx-auto mt-16 max-w-6xl px-4">
-        <h2 className="font-display text-2xl font-semibold">Latest guides</h2>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Latest guides</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {guides.map((g) => <GuideCard key={g.slug} g={g} />)}
           {guides.length === 0 && <p className="text-muted">The first guides are on their way.</p>}
         </div>
@@ -50,7 +50,7 @@ export default function Home() {
       <section className="mx-auto mt-16 max-w-6xl px-4">
         <div className="grid gap-8 rounded-lg bg-ink p-8 text-paper [&_.text-muted]:text-paper/70 sm:p-12 md:grid-cols-2">
           <div>
-            <h2 className="font-display text-2xl font-semibold">One email a month. Only what is useful.</h2>
+            <h2 className="font-display text-2xl font-bold tracking-tight">One email a month. Only what is useful.</h2>
             <p className="mt-2 text-muted">Price changes, new tests and rule changes that affect the AI tools you pay for. Unsubscribe in one click.</p>
           </div>
           <NewsletterForm />

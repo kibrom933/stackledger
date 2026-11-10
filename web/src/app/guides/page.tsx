@@ -12,7 +12,8 @@ export default function GuidesPage() {
   }));
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="font-display text-4xl font-semibold">Guides</h1>
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Stackledger</p>
+      <h1 className="mt-3 font-display text-4xl font-bold tracking-[-0.03em] sm:text-5xl">All guides</h1>
       <div className="mt-8"><GuideSearch items={items} /></div>
     </div>
   );

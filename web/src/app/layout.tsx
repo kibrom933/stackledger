@@ -44,20 +44,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="mt-24 border-t border-ink/90">
           <div className="mx-auto grid max-w-6xl gap-8 px-4 py-12 text-sm sm:grid-cols-3">
             <div>
-              <p className="font-display text-lg font-semibold">{site.name}</p>
+              <p className="flex items-center gap-2 font-display text-lg font-bold tracking-tight"><BrandMark /> {site.name}</p>
               <p className="mt-2 text-muted">{site.tagline}. Some links earn us a commission. That never changes what we recommend.</p>
             </div>
             <div>
-              <p className="font-medium">Topics</p>
-              <ul className="mt-2 space-y-1 text-muted">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Topics</p>
+              <ul className="mt-3 space-y-1.5 text-muted">
                 {categories.map((c) => (
                   <li key={c.slug}><Link href={`/category/${c.slug}`} className="hover:text-ink">{c.name}</Link></li>
                 ))}
               </ul>
             </div>
             <div>
-              <p className="font-medium">About</p>
-              <ul className="mt-2 space-y-1 text-muted">
+              <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">About</p>
+              <ul className="mt-3 space-y-1.5 text-muted">
                 <li><Link href="/about" className="hover:text-ink">How we test</Link></li>
                 <li><Link href="/affiliate-disclosure" className="hover:text-ink">Affiliate disclosure</Link></li>
                 <li><Link href="/privacy" className="hover:text-ink">Privacy policy</Link></li>

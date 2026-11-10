@@ -25,8 +25,8 @@ export function GuideSearch({ items }: { items: Item[] }) {
     <div>
       <label htmlFor="search" className="sr-only">Search guides</label>
       <input id="search" type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search, e.g. 'meeting notes' or 'voice cloning'"
-        className="w-full rounded-md border border-line bg-paper px-5 py-3 text-lg outline-none focus:border-brand" />
-      <p className="mt-3 text-sm text-muted" aria-live="polite">{results.length} results</p>
+        className="w-full rounded-md border border-ink/80 bg-paper px-5 py-3 text-lg outline-none focus:ring-2 focus:ring-brand" />
+      <p className="mt-3 font-mono text-xs text-muted" aria-live="polite">{results.length} {results.length === 1 ? "result" : "results"}</p>
       <div className="mt-4 grid gap-4 md:grid-cols-2">
         {results.map((g) => <GuideCard key={g.slug} g={g} />)}
       </div>

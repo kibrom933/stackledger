@@ -14,8 +14,9 @@ export default async function Admin() {
   const ctr = d.visitors30d ? (d.clicks30d / d.visitors30d) * 100 : null;
   return (
     <div className="mx-auto max-w-6xl px-4 py-10">
-      <h1 className="font-display text-3xl font-semibold">Operations: last 30 days</h1>
-      {!d.configured && <p className="mt-4 rounded-lg bg-accent-soft p-4 text-sm">Supabase is not configured yet (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Numbers are empty.</p>}
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Admin · last 30 days</p>
+      <h1 className="mt-3 font-display text-3xl font-bold tracking-[-0.03em]">Operations ledger</h1>
+      {!d.configured && <p className="mt-4 border-l-4 border-highlight bg-accent-soft p-4 font-mono text-xs">Supabase is not configured yet (SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY). Numbers are empty.</p>}
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <Tile label="Visitors" value={d.visitors30d?.toLocaleString("da-DK") ?? "–"} note={d.visitors30d === null ? "Plausible not connected" : undefined} />
         <Tile label="Affiliate link clicks" value={d.clicks30d.toLocaleString("da-DK")} note={ctr !== null ? `${ctr.toFixed(1)} % of visitors` : undefined} />
@@ -41,9 +42,9 @@ export default async function Admin() {
 
 function Tile({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="rounded-md border border-line p-5">
-      <p className="text-sm text-muted">{label}</p>
-      <p className="mt-2 font-display text-3xl font-semibold tabular-nums">{value}</p>
+    <div className="rounded-md border border-ink/80 p-5">
+      <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{label}</p>
+      <p className="mt-2 font-mono text-3xl font-semibold tabular-nums">{value}</p>
       {note && <p className="mt-1 text-xs text-muted">{note}</p>}
     </div>
   );
@@ -51,11 +52,11 @@ function Tile({ label, value, note }: { label: string; value: string; note?: str
 
 function Table({ title, rows }: { title: string; rows: string[][] }) {
   return (
-    <div className="rounded-md border border-line p-5">
-      <p className="font-medium">{title}</p>
+    <div className="rounded-md border border-ink/80 p-5">
+      <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-muted">{title}</p>
       {rows.length === 0 ? <p className="mt-3 text-sm text-muted">No data yet.</p> : (
         <table className="mt-3 w-full text-sm">
-          <tbody>{rows.map(([a, b]) => <tr key={a} className="border-t border-line"><td className="py-1.5 pr-2">{a}</td><td className="py-1.5 text-right tabular-nums">{b}</td></tr>)}</tbody>
+          <tbody>{rows.map(([a, b]) => <tr key={a} className="border-t border-line"><td className="py-1.5 pr-2">{a}</td><td className="py-1.5 text-right font-mono text-xs tabular-nums">{b}</td></tr>)}</tbody>
         </table>
       )}
     </div>

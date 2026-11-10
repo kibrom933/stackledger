@@ -19,7 +19,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const guides = allGuides().filter((g) => g.category === c.slug);
   return (
     <div className="mx-auto max-w-6xl px-4 py-12">
-      <h1 className="font-display text-4xl font-semibold">{c.name}</h1>
+      <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">Topic</p>
+      <h1 className="mt-3 font-display text-4xl font-bold tracking-[-0.03em] sm:text-5xl">{c.name}</h1>
       <p className="mt-3 max-w-2xl text-lg text-muted">{c.blurb}</p>
       <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {guides.map((g) => <GuideCard key={g.slug} g={g} />)}
