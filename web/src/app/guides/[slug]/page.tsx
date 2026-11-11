@@ -62,7 +62,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             <ol className="mt-3 list-decimal space-y-1 pl-5">
               {g.sources.map((s) => <li key={s.url}><a href={s.url} className="underline underline-offset-2" rel="noopener" target="_blank">{s.title}</a></li>)}
             </ol>
-            <p className="mt-4 text-muted">Spotted a mistake? Email {site.contactEmail} and we will fix it and note the correction.</p>
+            {site.contactEmail && <p className="mt-4 text-muted">Spotted a mistake? Email {site.contactEmail} and we will fix it and note the correction.</p>}
           </section>
         </div>
         {g.headings.length > 2 && (

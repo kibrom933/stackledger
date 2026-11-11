@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Terms", description: "Terms of use f
 export default function Terms() {
   return (
     <TextPage title="Terms of use" updated="10 November 2026">
-      <p>Stackledger is run by {company.name} (CVR {company.cvr}), Denmark. Danish law applies.</p>
+      <p>Stackledger is run by {company.name}{company.cvr && <> (CVR {company.cvr})</>}, Denmark. Danish law applies.</p>
       <h2>Information, not advice</h2>
       <p>Our guides are general information. They do not replace legal, tax or data-protection advice about your own situation.</p>
       <h2>Prices and plans</h2>

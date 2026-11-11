@@ -8,7 +8,7 @@ export const metadata: Metadata = { title: "Privacy policy", description: "What 
 export default function Privacy() {
   return (
     <TextPage title="Privacy policy" updated="10 November 2026">
-      <p>Data controller: {company.name}, CVR {company.cvr}, {company.address}, Denmark. Contact: {site.contactEmail}.</p>
+      <p>Data controller: {company.name}{company.cvr && <>, CVR {company.cvr}</>}{company.address && <>, {company.address}</>}, Denmark.{site.contactEmail && <> Contact: {site.contactEmail}.</>}</p>
       <h2>What we process</h2>
       <table>
         <thead><tr><th>Purpose</th><th>Data</th><th>Legal basis (GDPR)</th><th>Retention</th></tr></thead>

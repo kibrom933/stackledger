@@ -3,7 +3,7 @@ export const site = {
   tagline: "AI tools, tested from Europe: what they cost, what they do with your data, and whether they're worth it",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_US",
-  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "hello@example.com",
+  contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "",
 };
 
 export const categories = [

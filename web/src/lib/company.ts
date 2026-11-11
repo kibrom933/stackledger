@@ -1,6 +1,6 @@
-/** Filled from env before launch. The legal pages show these values. */
+/** Set in the hosting environment. Pages leave out any detail that is not set yet. */
 export const company = {
-  name: process.env.NEXT_PUBLIC_COMPANY_NAME ?? "[Company name]",
-  cvr: process.env.NEXT_PUBLIC_COMPANY_CVR ?? "[CVR no.]",
-  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? "[Address]",
+  name: process.env.NEXT_PUBLIC_COMPANY_NAME || "Stackledger",
+  cvr: process.env.NEXT_PUBLIC_COMPANY_CVR || "",
+  address: process.env.NEXT_PUBLIC_COMPANY_ADDRESS || "",
 };
