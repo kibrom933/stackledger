@@ -131,7 +131,8 @@ alter table job_runs enable row level security;
 alter table search_performance enable row level security;
 
 -- Data minimisation: unconfirmed signups older than 30 days, clicks older than 24 months.
-create or replace function purge_old_data() returns void language sql as $$
+create or replace function purge_old_data() returns void language sql set search_path = public as $$
   delete from subscribers where status = 'pending' and created_at < now() - interval '30 days';
   delete from outbound_clicks where created_at < now() - interval '24 months';
 $$;
+revoke execute on function purge_old_data() from public, anon, authenticated;
