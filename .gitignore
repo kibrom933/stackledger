@@ -7,3 +7,6 @@ __pycache__/
 *.egg-info/
 reports/
 .DS_Store
+.netlify/
+.secrets/
+stackledger-history.bundle
